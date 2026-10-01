@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eBay Final Output Sales</title>
+<style>
+:root{
+  --bg:#f4f5f7;--surface:#ffffff;--surface-2:#f7f8fa;--border:#e1e5ea;--line:#eceff3;--text:#1f2933;--muted:#5f6b7a;--head:#3a4452;
+  --accent:#1f5fa8;--accent-soft:#eef3fa;--pos:#15803d;--pos-soft:#e9f7ee;--pos-line:#9fd8b0;
+  --neg:#c0392b;--neg-soft:#fdeeee;--neg-line:#f2b8b1;--warn:#c2680a;--warn-soft:#fff4e6;--warn-line:#f7c99a;
+  --blue:#2563eb;--blue-soft:#eaf1fe;--blue-line:#b3cbf7;--na:#8b95a3;--std:#2f6db5;--adv:#7a4fb0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{padding:18px 24px 32px}
+h1{margin:0;font-size:20px}
+.sub{color:var(--muted);font-size:12.5px;margin:2px 0 14px}
+.filters{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:14px}
+.filters label{display:flex;flex-direction:column;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);gap:4px}
+.qwrap{position:relative;display:inline-flex}
+.filters input[type=search]{font:inherit;font-size:13px;text-transform:none;letter-spacing:0;font-weight:400;padding:6px 28px 6px 10px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--text);min-width:300px}
+.filters input[type=search]:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.filters input[type=search]::-webkit-search-cancel-button{display:none}
+#fQx{position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--na);font-size:16px;cursor:pointer;padding:0 4px;display:none}
+.filters select{font:inherit;font-size:13px;text-transform:none;letter-spacing:0;font-weight:400;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--text);min-width:230px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 12px 10px}
+.card-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:2px 4px 10px}
+.card-head h2{margin:0;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--head)}
+.showing{font-size:12.5px;color:var(--muted)}.showing b{color:var(--text)}
+.tbl-wrap{overflow:auto;max-height:calc(100vh - 260px);min-height:320px;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:12.5px;font-variant-numeric:tabular-nums}
+th,td{padding:12px 10px;text-align:right;white-space:nowrap;vertical-align:middle;border-bottom:1px solid var(--line);background:var(--surface)}
+thead th{position:sticky;top:0;z-index:2;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--head);
+  border-bottom:2px solid var(--border);padding:11px 10px;white-space:nowrap}
+.t{text-align:left}
+tbody tr[data-id]:hover td{background:#fafbfc}
+tbody tr[data-id] td:first-child{box-shadow:inset 3px 0 0 var(--bar,#cbd2da)}
+tr.sA{--bar:#22a55a}tr.sBad{--bar:#e5534b}tr.sU{--bar:#f08c2e}tr.sN{--bar:#cbd2da}
+.eid{font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;font-size:12px;border-bottom:1px dotted #8a94a3;color:var(--text)}
+tr.grp td{background:var(--accent-soft);color:var(--accent);text-align:left;font-weight:700;font-size:12px;letter-spacing:.02em;padding:9px 12px;border-bottom:1px solid #d9e3f2}
+tr.grp .tot{font-weight:500;color:var(--muted);margin-left:14px}
+tr.grp .tot b{color:var(--text);font-weight:600}
+.pos{color:var(--pos)}.neg{color:var(--neg)}
+.na{color:var(--na);font-style:italic}
+.s{display:block;line-height:1.45}
+.s b{font-weight:600;font-size:9.5px;margin-right:5px;padding:0 4px;border-radius:4px;font-style:normal}
+.s b.std{background:#e8f0fa;color:var(--std)}.s b.adv{background:#f1eafa;color:var(--adv)}
+.sku{min-width:200px;max-width:230px}
+.sku .skus{max-height:112px;overflow-y:auto;padding-right:4px}
+.sku .one{display:block;white-space:normal;overflow-wrap:break-word;line-height:1.4;padding:1px 0}
+.sku .cnt{display:inline-block;font-size:10.5px;color:var(--accent);background:var(--accent-soft);border-radius:8px;padding:0 6px;margin-top:3px}
+.more{display:inline-block;font-size:10.5px;color:var(--accent);background:var(--accent-soft);border-radius:8px;padding:0 6px;margin-left:4px;cursor:help;font-style:normal}
+.src{display:inline-block;font-size:10.5px;color:var(--warn);background:var(--warn-soft);border-radius:8px;padding:0 6px;margin-left:4px}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:12px;font-size:11px;font-weight:600;white-space:nowrap;margin:2px 3px 2px 0;border:1px solid}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.ok{background:var(--pos-soft);color:var(--pos);border-color:var(--pos-line)}
+.pill.bad{background:var(--neg-soft);color:var(--neg);border-color:var(--neg-line)}
+.pill.warn{background:var(--warn-soft);color:var(--warn);border-color:var(--warn-line)}
+.pill.grey{background:var(--surface-2);color:var(--muted);border-color:var(--border)}
+td.seg{text-align:left;white-space:normal;min-width:180px}
+.pager{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--muted)}
+.pager .nav{display:flex;gap:8px;align-items:center}
+.pager button{font:inherit;font-size:12.5px;font-weight:600;color:var(--text);padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface);cursor:pointer}
+.pager button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.pager button:disabled{opacity:.4;cursor:default}
+.pager select{font:inherit;padding:5px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;margin-left:8px}
+.foot{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+@media (max-width:700px){
+  main{padding-left:16px;padding-right:16px}
+  .filters select{min-width:0;width:100%}
+  .filters label{flex:1 1 140px}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>eBay – Final OutPut Sales</h1>
+  <div class="sub" id="sub"></div>
+  <div class="filters" role="search">
+    <label>Account<select id="fAcct"></select></label>
+    <label>Segment<select id="fSeg"></select></label>
+    <label>Search eBay ID / SKU<span class="qwrap"><input type="search" id="fQ" placeholder="Type an eBay ID or SKU…" autocomplete="off"><button type="button" id="fQx" title="Clear search">&times;</button></span></label>
+  </div>
+  <div class="card">
+    <div class="card-head"><h2>September Comparison Table</h2><span class="showing" id="count"></span></div>
+    <div class="tbl-wrap" id="wrap"><table id="t"></table></div>
+    <div class="pager">
+      <span class="nav"><button id="pgFirst" type="button">&laquo; First</button><button id="pgPrev" type="button">&lsaquo; Prev</button>
+        <span id="pgInfo"></span><button id="pgNext" type="button">Next &rsaquo;</button><button id="pgLast" type="button">Last &raquo;</button></span>
+      <span>Rows per page<select id="pgSize"><option>25</option><option selected>50</option><option>100</option><option>200</option></select></span>
+    </div>
+  </div>
+  <div class="foot" id="foot"></div>
+</main>
+<script>
+const DATA = /*__DATA__*/null;
+(function(){
+"use strict";
+const ACCTS=["Sunsone","Ledsone","Electricalsone","Huttenlampen","ledsone uk de","ledsone de"];
+const COLS=["eBay ID","SKU","LY Sales","TY Sales","YoY %","LY Ad Sales","TY Ad Sales","LY Views","TY Views","LY Orders","TY Orders",
+  "LY Conversion %","TY Conversion %","LY Price","TY Price","Ad Impressions","Ad Clicks","Ad Spend","Ad Sales","ROAS/ACOS","Segment"];
+const KEYS=["id","sku","lys","tys","yoy","LYAdSales","TYAdSales","lyv","tyv","lyo","tyo","lyc","tyc","lyp","typ","AdImpressions","AdClicks","AdSpend","AdSales","ra","seg"];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const P=a=>({s:a[0],o:a[1],u:a[2],pxq:a[3],v:a[4],im:a[5]});
+const ROWS=DATA.rows.map(a=>({acct:a[0],mp:a[1],id:a[2],skus:a[3],LY:P(a[4]),TY:P(a[5]),ads:a[6],seg:a[7],lsku:a[8]||[],created:a[9]||null}));
+// listing created after Sep 2025 and no LY order/traffic/ad row at all -> LY gap cells read "Not live in Sep 2025"
+const LY_END="2025-09-30";
+for(const r of ROWS){r.nl=!!(r.created&&r.created>LY_END&&r.LY.s===0&&r.LY.o===0&&r.LY.v===null&&!(r.ads.S&&r.ads.S.LY)&&!(r.ads.A&&r.ads.A.LY));}
+const fmtD=d=>{const p=d.split("-");return +p[2]+" "+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1]-1]+" "+p[0];};
+const NL=r=>'<span class="na" title="Listing created '+fmtD(r.created)+' (after Sep 2025); no LY data exists">Not live in Sep 2025</span>';
+const MPS=[...new Set(ROWS.map(r=>r.mp))].sort((a,b)=>(a==="UK"?-1:b==="UK"?1:a.localeCompare(b)));
+
+const nf0=new Intl.NumberFormat("en-GB",{maximumFractionDigits:0});
+const nf2=new Intl.NumberFormat("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2});
+const NA='<span class="na">N/A</span>',ND='<span class="na">No data</span>',NADV='<span class="na">Not advertised</span>';
+const m2=v=>nf2.format(v),i0=v=>nf0.format(v);
+const yoyV=(ly,ty)=>ly===0?null:(ty-ly)/ly*100;
+function yoyHtml(ly,ty){const v=yoyV(ly,ty);if(v===null)return NA;return '<span class="'+(v>0?"pos":v<0?"neg":"")+'">'+(v>0?"+":"")+nf2.format(v)+"%</span>";}
+const views=(p,lbl)=>p.v===null?ND:'<span title="'+lbl+" Impressions: "+(p.im===null?"no data":i0(p.im))+(p.im?" · CTR "+nf2.format(p.v/p.im*100)+"%":"")+'">'+i0(p.v)+"</span>";
+const convV=p=>p.v===null||p.v===0?null:p.o/p.v*100;
+const conv=p=>p.v===null?ND:p.v===0?NA:nf2.format(p.o/p.v*100)+"%";
+const price=p=>p.u===0?NA:m2(p.pxq/p.u);
+// Standard (COST_PER_SALE) and Advanced (ON_SITE) listed separately, never summed.
+function ad(r,per,fn){
+  const s=r.ads.S&&r.ads.S[per],a=r.ads.A&&r.ads.A[per];
+  if(!s&&!a)return NADV;
+  return [["Std","std","Standard",s],["Adv","adv","Advanced",a]].map(([lb,c,nm,x])=>'<span class="s"><b class="'+c+'" title="'+nm+'">'+lb+"</b>"+(x?fn(x):'<span class="na" title="Not advertised ('+nm+')">–</span>')+"</span>").join("");
+}
+const ra=a=>(a[2]===0?"N/A":nf2.format(a[3]/a[2]))+" / "+(a[3]===0?"N/A":nf2.format(a[2]/a[3]*100)+"%");
+const segCls=s=>s.startsWith("A")?"ok":s.startsWith("C")||s.startsWith("D")?"bad":s.startsWith("Undetermined")?"warn":"grey";
+function segPills(seg){return seg.map(s=>'<span class="pill '+segCls(s)+'" data-seg="'+esc(s)+'"'+(s.startsWith("Undetermined")?' title="TY Sales &lt; LY Sales with TY &gt; 0. “recent sales improving” (B) and “TY Sales ≈ 0” (D) are not defined in Ebay.xlsx"':"")+">"+esc(s)+"</span>").join("");}
+// left accent bar: worst-signal segment of the row
+const barCls=seg=>seg.some(s=>s.startsWith("C")||s.startsWith("D"))?"sBad":seg.some(s=>s.startsWith("Undetermined"))?"sU":seg.some(s=>s.startsWith("A"))?"sA":"sN";
+// every SKU shown in full, one per line; long lists scroll inside the cell (max ~6 lines)
+function skuList(l,extra){return '<div class="skus" title="'+esc(l.join(", "))+'">'+l.map(x=>'<span class="one">'+esc(x).split("+").join("+<wbr>")+"</span>").join("")+"</div>"+(l.length>6?'<span class="cnt">'+l.length+" SKUs</span>":"")+(extra||"");}
+function skuCell(r){
+  if(r.skus.length)return skuList(r.skus);
+  if(r.lsku.length)return skuList(r.lsku,'<span class="src" title="No Completed order in Sep 2025 or Sep 2026, so the SKU comes from the listing (listing_data)">from listing</span>');
+  return '<span class="na">Not available in source data</span>';
+}
+function row(r){
+  const c=['<span class="eid">'+esc(r.id)+"</span>",skuCell(r),m2(r.LY.s),m2(r.TY.s),yoyHtml(r.LY.s,r.TY.s),
+    r.nl?NL(r):ad(r,"LY",a=>m2(a[3])),ad(r,"TY",a=>m2(a[3])),r.nl?NL(r):views(r.LY,"LY"),views(r.TY,"TY"),i0(r.LY.o),i0(r.TY.o),
+    r.nl?NL(r):conv(r.LY),conv(r.TY),price(r.LY),price(r.TY),
+    ad(r,"TY",a=>i0(a[0])),ad(r,"TY",a=>i0(a[1])),ad(r,"TY",a=>m2(a[2])),ad(r,"TY",a=>m2(a[3])),ad(r,"TY",ra),segPills(r.seg)];
+  return '<tr class="'+barCls(r.seg)+'" data-id="'+esc(r.id)+'" data-acct="'+esc(r.acct)+'" data-mp="'+esc(r.mp)+'">'+
+    c.map((v,i)=>'<td data-k="'+KEYS[i]+'" class="'+(i===0?"t":i===1?"t sku":i===20?"t seg":"")+'">'+v+"</td>").join("")+"</tr>";
+}
+function grpRow(k,rs,cont){
+  let ly=0,ty=0;for(const r of rs){ly+=r.LY.s;ty+=r.TY.s;}
+  return '<tr class="grp" data-grp="'+esc(k)+'"><td colspan="'+COLS.length+'">'+esc(k)+(cont?' <span class="na">(continued)</span>':"")+
+    '<span class="tot">'+i0(rs.length)+' IDs · LY Sales <b data-k="glys">'+m2(ly)+'</b> · TY Sales <b data-k="gtys">'+m2(ty)+"</b> · YoY "+yoyHtml(ly,ty)+"</span></td></tr>";
+}
+
+const act=r=>[r.TY.s,r.LY.s,(r.TY.v||0)+(r.LY.v||0)];
+function current(){
+  const fa=$("fAcct").value,fs=$("fSeg").value,q=$("fQ").value.trim().toLowerCase();
+  // search: partial, case-insensitive match on eBay ID, order SKUs and listing SKUs
+  const hit=r=>!q||r.id.toLowerCase().includes(q)||r.skus.some(x=>x.toLowerCase().includes(q))||r.lsku.some(x=>x.toLowerCase().includes(q));
+  const rs=ROWS.filter(r=>(!fa||r.acct===fa)&&(!fs||r.seg.includes(fs))&&hit(r));
+  // default: workbook account order, marketplace, then most activity first
+  return rs.sort((a,b)=>{const d=ACCTS.indexOf(a.acct)-ACCTS.indexOf(b.acct)||MPS.indexOf(a.mp)-MPS.indexOf(b.mp);if(d)return d;
+    const x=act(a),y=act(b);return y[0]-x[0]||y[1]-x[1]||y[2]-x[2]||(a.id<b.id?-1:1);});
+}
+
+const SEGS=[...new Set(ROWS.flatMap(r=>r.seg))].sort();
+$("fAcct").innerHTML='<option value="">All accounts</option>'+ACCTS.map(a=>"<option>"+esc(a)+"</option>").join("");
+$("fSeg").innerHTML='<option value="">All segments</option>'+SEGS.map(s=>"<option>"+esc(s)+"</option>").join("");
+let page=0;
+function render(){
+  const size=+$("pgSize").value,rs=current(),groups=new Map();
+  for(const r of rs){const k=r.acct+" · "+r.mp;if(!groups.has(k))groups.set(k,[]);groups.get(k).push(r);}
+  const pages=Math.max(1,Math.ceil(rs.length/size));if(page>=pages)page=pages-1;
+  const h=["<thead><tr>"+COLS.map((c,i)=>'<th class="'+(i<2||i===20?"t":"")+'">'+c+"</th>").join("")+"</tr></thead><tbody>"];
+  let g=null;
+  for(const r of rs.slice(page*size,(page+1)*size)){
+    const k=r.acct+" · "+r.mp;if(k!==g){const all=groups.get(k);h.push(grpRow(k,all,all[0]!==r));g=k;}
+    h.push(row(r));
+  }
+  if(!rs.length)h.push('<tr><td class="t" colspan="'+COLS.length+'">No eBay IDs match the filters.</td></tr>');
+  $("t").innerHTML=h.join("")+"</tbody>";
+  $("count").innerHTML="Showing <b>"+(rs.length?i0(page*size+1):0)+"–"+i0(Math.min(rs.length,(page+1)*size))+"</b> of <b data-n=\""+rs.length+"\">"+i0(rs.length)+"</b> eBay IDs"+(rs.length<ROWS.length?" (filtered from "+i0(ROWS.length)+")":"");
+  if(!rs.length&&$("fQ").value.trim())$("t").querySelector("tbody").innerHTML='<tr><td class="t" colspan="'+COLS.length+'">No eBay ID or SKU matches “'+esc($("fQ").value.trim())+'” with the selected filters.</td></tr>';
+  $("pgInfo").textContent="Page "+(page+1)+" of "+pages;
+  $("pgFirst").disabled=$("pgPrev").disabled=page===0;$("pgNext").disabled=$("pgLast").disabled=page>=pages-1;
+}
+$("sub").textContent="September -Comparision · LY = 1–30 Sep 2025 · TY = 1–30 Sep 2026 · Generated "+DATA.generated_at;
+$("foot").innerHTML="Sales = Completed eBay orders in each marketplace's own currency. Order: workbook account order, then sales and views. "+
+  "Ad Impressions, Ad Clicks, Ad Spend, Ad Sales and ROAS/ACOS = TY September (shown as ROAS / ACOS %). <span class=\"s\" style=\"display:inline\"><b class=\"std\">Std</b></span> Standard (Cost Per Sale) and <span class=\"s\" style=\"display:inline\"><b class=\"adv\">Adv</b></span> Advanced (Cost Per Click) are listed separately and never summed; – = that ad type not advertised. "+
+  "<i>N/A</i> = can't be calculated (divisor 0). <i>No data</i> = no traffic row. <i>Not advertised</i> = no ad row. <i>Not live in Sep 2025</i> = listing created after Sep 2025 (listings.ebay_listings) with no LY order, traffic or ad row (hover for the date). Hover over Views to see Impressions and CTR. "+
+  "SKU marked <span class=\"src\">from listing</span> = no Completed order in either September, so the SKU is taken from the listing. "+
+  "Row colour bar: green = A, red = C or D, amber = Undetermined: B or D, grey = no segment rule met. Segment rules follow Ebay.xlsx; “recent sales improving” (B) and “TY Sales ≈ 0” (D) are not defined in the workbook.";
+const go=p=>{page=p;render();$("wrap").scrollTop=0;};
+$("fAcct").onchange=()=>go(0);$("fSeg").onchange=()=>go(0);
+let qt;$("fQ").addEventListener("input",()=>{$("fQx").style.display=$("fQ").value?"block":"none";clearTimeout(qt);qt=setTimeout(()=>go(0),200);});
+$("fQx").onclick=()=>{$("fQ").value="";$("fQx").style.display="none";go(0);$("fQ").focus();};$("pgSize").onchange=()=>go(0);
+$("pgFirst").onclick=()=>go(0);$("pgPrev").onclick=()=>go(page-1);$("pgNext").onclick=()=>go(page+1);$("pgLast").onclick=()=>go(1e9);
+render();
+})();
+</script>
+</body>
+</html>

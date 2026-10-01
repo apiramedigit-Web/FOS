@@ -1,0 +1,290 @@
+[
+ {
+  "field": "Ad Clicks A LY",
+  "source": 49851.0,
+  "dataset": 49851.0,
+  "html": 49851.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Clicks A TY",
+  "source": 26970.0,
+  "dataset": 26970.0,
+  "html": 26970.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Clicks S LY",
+  "source": 47543.0,
+  "dataset": 47543.0,
+  "html": 47543.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Clicks S TY",
+  "source": 20938.0,
+  "dataset": 20938.0,
+  "html": 20938.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Impressions A LY",
+  "source": 14560643.0,
+  "dataset": 14560643.0,
+  "html": 14560643.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Impressions A TY",
+  "source": 12849966.0,
+  "dataset": 12849966.0,
+  "html": 12849966.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Impressions S LY",
+  "source": 40418105.0,
+  "dataset": 40418105.0,
+  "html": 40418105.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Impressions S TY",
+  "source": 20755222.0,
+  "dataset": 20755222.0,
+  "html": 20755222.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Sales A LY",
+  "source": 31667.960000000057,
+  "dataset": 31667.959999999985,
+  "html": 31667.95999999998,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Sales A TY",
+  "source": 18012.119999999948,
+  "dataset": 18012.11999999999,
+  "html": 18012.11999999999,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Ad Sales S LY",
+  "source": 109123.4799999995,
+  "dataset": 109123.47999999986,
+  "html": 109123.47999999986,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Ad Sales S TY",
+  "source": 58346.58999999964,
+  "dataset": 58346.58999999998,
+  "html": 58346.58999999998,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Ad Spend A LY",
+  "source": 9236.029999999704,
+  "dataset": 9236.029999999984,
+  "html": 9236.029999999984,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Ad Spend A TY",
+  "source": 4664.069999999987,
+  "dataset": 4664.069999999997,
+  "html": 4664.069999999996,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Ad Spend S LY",
+  "source": 10545.170000000038,
+  "dataset": 10545.170000000004,
+  "html": 10545.170000000004,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Ad Spend S TY",
+  "source": 4908.580000000003,
+  "dataset": 4908.580000000006,
+  "html": 4908.580000000006,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Advertised IDs A LY",
+  "source": 2192,
+  "dataset": 2192,
+  "html": 2192,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0
+ },
+ {
+  "field": "Advertised IDs A TY",
+  "source": 942,
+  "dataset": 942,
+  "html": 942,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0
+ },
+ {
+  "field": "Advertised IDs S LY",
+  "source": 9107,
+  "dataset": 9107,
+  "html": 9107,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0
+ },
+ {
+  "field": "Advertised IDs S TY",
+  "source": 7034,
+  "dataset": 7034,
+  "html": 7034,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0
+ },
+ {
+  "field": "Impressions LY",
+  "source": 88236966.0,
+  "dataset": 88236966.0,
+  "html": 88236966.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Impressions TY",
+  "source": 94083533.0,
+  "dataset": 94083533.0,
+  "html": 94083533.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Orders LY",
+  "source": 6199,
+  "dataset": 6199.0,
+  "html": 6199.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Orders TY",
+  "source": 4404,
+  "dataset": 4404.0,
+  "html": 4404.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Sales LY",
+  "source": 115086.4899999986,
+  "dataset": 115086.48999999989,
+  "html": 115086.48999999989,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Sales TY",
+  "source": 97197.2999999998,
+  "dataset": 97197.29999999981,
+  "html": 97197.29999999981,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": -0.0
+ },
+ {
+  "field": "Unique SKUs (order data)",
+  "source": 3131,
+  "dataset": 3131,
+  "html": 3131,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0
+ },
+ {
+  "field": "Views LY",
+  "source": 242059.0,
+  "dataset": 242059.0,
+  "html": 242059.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "Views TY",
+  "source": 184338.0,
+  "dataset": 184338.0,
+  "html": 184338.0,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0.0
+ },
+ {
+  "field": "blank SKU lines LY",
+  "source": 0,
+  "dataset": null,
+  "html": null,
+  "dataset_ok": false,
+  "html_ok": false,
+  "html_missing": null
+ },
+ {
+  "field": "blank SKU lines TY",
+  "source": 0,
+  "dataset": null,
+  "html": null,
+  "dataset_ok": false,
+  "html_ok": false,
+  "html_missing": null
+ },
+ {
+  "field": "eBay IDs (account x marketplace x item)",
+  "source": 14890,
+  "dataset": 14890,
+  "html": 14890,
+  "dataset_ok": true,
+  "html_ok": true,
+  "html_missing": 0
+ }
+]

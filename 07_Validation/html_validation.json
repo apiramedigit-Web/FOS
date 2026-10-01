@@ -1,0 +1,116 @@
+{
+ "n": 22,
+ "failed": 0,
+ "results": [
+  {
+   "check": "file exists and opens in Chromium",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "header = the 21 Final OutPut Sales columns in workbook order",
+   "ok": true,
+   "detail": "['eBay ID', 'SKU', 'LY Sales', 'TY Sales', 'YoY %', 'LY Ad Sales', 'TY Ad Sales', 'LY Views', 'TY Views', 'LY Orders', 'TY Orders', 'LY Conversion %', 'TY Conversion %', 'LY Price', 'TY Price', 'Ad Impressions', 'Ad Clicks', 'Ad Spend', 'Ad Sales', 'ROAS/ACOS', 'Segment']"
+  },
+  {
+   "check": "filters = Account, Segment (requirement) + eBay ID/SKU search",
+   "ok": true,
+   "detail": "['Account', 'Segment', 'Search eBay ID / SKU']"
+  },
+  {
+   "check": "Account options = 'All accounts' + 6 workbook accounts in order",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Segment options = 'All segments' + every segment present",
+   "ok": true,
+   "detail": "['All segments', 'A – YoY Winner', 'C – Lost Ad Sales (Advanced)', 'C – Lost Ad Sales (Standard)', 'D – Lost Performer', 'No segment rule met', 'Undetermined: B or D']"
+  },
+  {
+   "check": "default view = all accounts, all segments, all IDs",
+   "ok": true,
+   "detail": "Showing 1–50 of 14,902 eBay IDs"
+  },
+  {
+   "check": "pager: First/Prev/Page x of y/Next/Last + rows per page",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "rows rendered across all pages = every eBay ID in scope (14,902)",
+   "ok": true,
+   "detail": "(14902, 14902)"
+  },
+  {
+   "check": "all 14,902 rows match independent recompute (21 columns, Std/Adv separately, tooltips, SKU source, segments)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "no empty / undefined / NaN / Infinity / null cell on any page",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "'Not live in Sep 2025' shown on exactly the 2,564 listings created after Sep 2025 with no LY data",
+   "ok": true,
+   "detail": "(2564, 2564)"
+  },
+  {
+   "check": "SKU shown for every ID that has one in any source (only 4,010 have none anywhere)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Σ displayed rows reconcile to source SQL for all 21 account x marketplace (Sales, Orders, Views, Impressions, every ad metric per strategy)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "every source account x marketplace has rows on the page",
+   "ok": true,
+   "detail": "set()"
+  },
+  {
+   "check": "all 21 account header totals (LY/TY Sales) correct",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Segment filter: each option shows exactly its IDs; multi-segment IDs keep all labels; header totals follow the filter",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Account filter: each account shows exactly its IDs; 'All accounts' = all 6",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Account + Segment combined; ad values still shown under filter",
+   "ok": true,
+   "detail": "91"
+  },
+  {
+   "check": "search: eBay ID, SKU, partial/case-insensitive, listing SKU, combined with Account; no-match message; clear button",
+   "ok": true,
+   "detail": "([], True, True)"
+  },
+  {
+   "check": "no sort arrows / sort handlers on headers (removed per user)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "390px: page itself has no horizontal scroll (table scrolls in its box)",
+   "ok": true,
+   "detail": "(390, 390)"
+  },
+  {
+   "check": "no JS errors / console errors",
+   "ok": true,
+   "detail": "[]"
+  }
+ ]
+}

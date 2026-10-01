@@ -1,0 +1,82 @@
+rows 18940 sku rows 6470 listing-only rows 12470
+duplicate row keys 0
+blank SKU in sales rows 0
+blank eBay ID 0
+non-numeric eBay ID 0
+shared-listing sku rows 5182 listings 1132
+same SKU on >1 listing (per acct/mp) 879
+sales rows without traffic TY 1
+sales rows without traffic LY 2
+orders>views (TY listing) 0
+zero/neg sales with orders 0
+new TY (LY=0,TY>0) 2475
+lost (LY>0,TY=0) 3307
+segment coverage (sku rows) 2672 / 6470
+segment multi-label 21
+== coverage days
+['orders', 'electricalsone', 'France', 'LY', 5, '2025-09-02', '2025-09-27']
+['orders', 'electricalsone', 'France', 'TY', 1, '2026-09-01', '2026-09-01']
+['orders', 'electricalsone', 'Germany', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'electricalsone', 'Germany', 'TY', 29, '2026-09-01', '2026-09-29']
+['orders', 'electricalsone', 'UK', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'electricalsone', 'UK', 'TY', 30, '2026-09-01', '2026-09-30']
+['orders', 'electricalsone', 'US', 'TY', 16, '2026-09-02', '2026-09-29']
+['orders', 'huettenlampen', 'Germany', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'huettenlampen', 'Germany', 'TY', 30, '2026-09-01', '2026-09-30']
+['orders', 'led_sone', 'France', 'LY', 5, '2025-09-03', '2025-09-26']
+['orders', 'led_sone', 'France', 'TY', 1, '2026-09-05', '2026-09-05']
+['orders', 'led_sone', 'Germany', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'led_sone', 'Germany', 'TY', 30, '2026-09-01', '2026-09-30']
+['orders', 'led_sone', 'Ireland', 'TY', 1, '2026-09-16', '2026-09-16']
+['orders', 'led_sone', 'UK', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'led_sone', 'UK', 'TY', 30, '2026-09-01', '2026-09-30']
+['orders', 'led_sone', 'US', 'LY', 6, '2025-09-09', '2025-09-28']
+['orders', 'led_sone', 'US', 'TY', 10, '2026-09-03', '2026-09-27']
+['orders', 'ledsonede', 'Germany', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'ledsonede', 'Germany', 'TY', 30, '2026-09-01', '2026-09-30']
+['orders', 'ledsonede', 'UK', 'LY', 4, '2025-09-02', '2025-09-21']
+['orders', 'so_926407', 'France', 'LY', 1, '2025-09-12', '2025-09-12']
+['orders', 'so_926407', 'France', 'TY', 1, '2026-09-07', '2026-09-07']
+['orders', 'so_926407', 'Germany', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'so_926407', 'Germany', 'TY', 26, '2026-09-01', '2026-09-29']
+['orders', 'so_926407', 'UK', 'LY', 30, '2025-09-01', '2025-09-30']
+['orders', 'so_926407', 'UK', 'TY', 30, '2026-09-01', '2026-09-30']
+['orders', 'so_926407', 'US', 'TY', 2, '2026-09-07', '2026-09-22']
+['traffic', 'electricalsone', 'France', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'electricalsone', 'France', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'electricalsone', 'Germany', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'electricalsone', 'Germany', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'electricalsone', 'UK', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'electricalsone', 'UK', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'electricalsone', 'US', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'electricalsone', 'US', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'huettenlampen', 'Germany', 'LY', 26, '2025-09-01', '2025-09-30']
+['traffic', 'huettenlampen', 'Germany', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'led_sone', 'France', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'led_sone', 'France', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'led_sone', 'Germany', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'led_sone', 'Germany', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'led_sone', 'UK', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'led_sone', 'UK', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'led_sone', 'US', 'LY', 28, '2025-09-01', '2025-09-30']
+['traffic', 'led_sone', 'US', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'ledsonede', 'Germany', 'LY', 26, '2025-09-01', '2025-09-30']
+['traffic', 'ledsonede', 'Germany', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'ledsonede', 'UK', 'LY', 26, '2025-09-01', '2025-09-30']
+['traffic', 'ledsonede', 'UK', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'so_926407', 'France', 'LY', 16, '2025-09-01', '2025-09-30']
+['traffic', 'so_926407', 'France', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'so_926407', 'Germany', 'LY', 16, '2025-09-01', '2025-09-30']
+['traffic', 'so_926407', 'Germany', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'so_926407', 'UK', 'LY', 16, '2025-09-01', '2025-09-30']
+['traffic', 'so_926407', 'UK', 'TY', 29, '2026-09-01', '2026-09-29']
+['traffic', 'so_926407', 'US', 'TY', 29, '2026-09-01', '2026-09-29']
+== non-completed status TY/LY
+('LY', 'Cancelled') 13 143.97
+('LY', 'Completed') 6533 115086.49
+('LY', 'Refunded') 154 1099.73
+('TY', 'Cancelled') 9 277.94
+('TY', 'Completed') 4626 97197.3
+('TY', 'Hold') 2 13.51
+('TY', 'New') 124 2524.56
+('TY', 'Refunded') 43 99.3

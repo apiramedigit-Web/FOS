@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eBay Final Output Sales</title>
+<style>
+:root{
+  --bg:#f5f7fa;--surface:#ffffff;--surface-2:#f0f3f7;--border:#dde3ea;--text:#1d2733;--muted:#5b6878;
+  --accent:#1f5fa8;--accent-soft:#e6eef8;--pos:#1a7f4b;--pos-soft:#e5f4ec;--neg:#b42318;--neg-soft:#fdecea;
+  --warn:#8a5a00;--warn-soft:#fff4dc;--na:#8a94a3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:1600px;margin:0 auto;padding:20px 24px 40px}
+h1{margin:0 0 2px;font-size:21px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.filters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.filters label{display:flex;flex-direction:column;font-size:12px;color:var(--muted);gap:3px}
+.filters select{font:inherit;padding:6px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--text);min-width:200px}
+.count{font-size:12.5px;color:var(--muted);margin-left:auto}
+.tbl-wrap{overflow:auto;max-height:78vh;background:var(--surface);border:1px solid var(--border);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:6px 8px;border-bottom:1px solid var(--border);text-align:right;white-space:nowrap;vertical-align:top}
+th{background:var(--surface-2);position:sticky;top:0;z-index:1;font-weight:600}
+td.t,th.t{text-align:left}
+tr:hover td{background:#f8fafc}
+tr.grp td{background:var(--accent-soft);font-weight:650;text-align:left;color:var(--accent)}
+.pos{color:var(--pos)}.neg{color:var(--neg)}.na{color:var(--na)}
+.s{display:block;line-height:1.35}
+.s b{font-weight:500;color:var(--muted);font-size:11px;margin-right:4px}
+.badge{display:inline-block;padding:1px 6px;border-radius:10px;font-size:11px;white-space:nowrap;margin:1px 2px 1px 0}
+.badge.ok{background:var(--pos-soft);color:var(--pos)}
+.badge.bad{background:var(--neg-soft);color:var(--neg)}
+.badge.warn{background:var(--warn-soft);color:var(--warn)}
+.badge.grey{background:var(--surface-2);color:var(--muted)}
+.foot{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6}
+@media (max-width:700px){
+  main{padding-left:16px;padding-right:16px}
+  .filters select{min-width:0;width:100%}
+  .filters label{flex:1 1 140px}
+  .count{margin-left:0}
+}
+</style>
+</head>
+<body>
+<main>
+  <h1>eBay – Final OutPut Sales</h1>
+  <div class="sub" id="sub"></div>
+  <div class="filters" role="search">
+    <label>Account<select id="fAcct"></select></label>
+    <label>Segment<select id="fSeg"></select></label>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="tbl-wrap"><table id="t"></table></div>
+  <div class="foot" id="foot"></div>
+</main>
+<script>
+const DATA = /*__DATA__*/null;
+(function(){
+"use strict";
+const ACCTS=["Sunsone","Ledsone","Electricalsone","Huttenlampen","ledsone uk de","ledsone de"];
+const COLS=["eBay ID","SKU","LY Sales","TY Sales","YoY %","LY Ad Sales","TY Ad Sales","LY Views","TY Views","LY Orders","TY Orders",
+  "LY Conversion %","TY Conversion %","LY Price","TY Price","Ad Impressions","Ad Clicks","Ad Spend","Ad Sales","ROAS/ACOS","Segment"];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const P=a=>({s:a[0],o:a[1],u:a[2],pxq:a[3],v:a[4]});
+const ROWS=DATA.rows.map(a=>({acct:a[0],mp:a[1],id:a[2],skus:a[3],LY:P(a[4]),TY:P(a[5]),ads:a[6],seg:a[7]}));
+const MPS=[...new Set(ROWS.map(r=>r.mp))].sort((a,b)=>(a==="UK"?-1:b==="UK"?1:a.localeCompare(b)));
+
+const nf0=new Intl.NumberFormat("en-GB",{maximumFractionDigits:0});
+const nf2=new Intl.NumberFormat("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2});
+const NA='<span class="na">N/A</span>',ND='<span class="na">No data</span>';
+const m2=v=>nf2.format(v);
+const yoy=(ty,ly)=>ly===0?null:(ty-ly)/ly*100;
+function yoyHtml(v){if(v===null)return NA;return '<span class="'+(v>0?"pos":v<0?"neg":"")+'">'+(v>0?"+":"")+nf2.format(v)+"%</span>";}
+const conv=p=>p.v===null?ND:p.v===0?NA:nf2.format(p.o/p.v*100)+"%";
+const price=p=>p.u===0?NA:m2(p.pxq/p.u);
+const views=p=>p.v===null?ND:nf0.format(p.v);
+// Standard (COST_PER_SALE) and Advanced (ON_SITE) shown separately, never summed
+function ad(r,per,fn){
+  return [["S","Standard"],["A","Advanced"]].map(([k,nm])=>{const a=r.ads[k]&&r.ads[k][per];
+    return '<span class="s"><b>'+nm+'</b>'+(a?fn(a):'<span class="na">Not advertised</span>')+"</span>";}).join("");
+}
+const roasAcos=a=>"ROAS "+(a[2]===0?"N/A":nf2.format(a[3]/a[2]))+" / ACOS "+(a[3]===0?"N/A":nf2.format(a[2]/a[3]*100)+"%");
+function segBadges(seg){return seg.map(s=>'<span class="badge '+(s.startsWith("A")?"ok":s.startsWith("C")||s.startsWith("D")?"bad":s.startsWith("Undetermined")?"warn":"grey")+'">'+esc(s)+"</span>").join(" ");}
+function skuCell(r){return r.skus.length?esc(r.skus.join(", ")):'<span class="na">Not available in order data</span>';}
+
+function row(r){
+  const c=[esc(r.id),skuCell(r),m2(r.LY.s),m2(r.TY.s),yoyHtml(yoy(r.TY.s,r.LY.s)),
+    ad(r,"LY",a=>m2(a[3])),ad(r,"TY",a=>m2(a[3])),views(r.LY),views(r.TY),nf0.format(r.LY.o),nf0.format(r.TY.o),
+    conv(r.LY),conv(r.TY),price(r.LY),price(r.TY),
+    ad(r,"TY",a=>nf0.format(a[0])),ad(r,"TY",a=>nf0.format(a[1])),ad(r,"TY",a=>m2(a[2])),ad(r,"TY",a=>m2(a[3])),ad(r,"TY",roasAcos),segBadges(r.seg)];
+  return '<tr data-id="'+esc(r.id)+'" data-acct="'+esc(r.acct)+'" data-mp="'+esc(r.mp)+'">'+c.map((v,i)=>'<td class="'+(i<2||i===20?"t":"")+'"'+(i===1?' style="white-space:normal;min-width:220px"':"")+">"+v+"</td>").join("")+"</tr>";
+}
+
+const SEGS=[...new Set(ROWS.flatMap(r=>r.seg))].sort();
+$("fAcct").innerHTML='<option value="">All accounts</option>'+ACCTS.map(a=>"<option>"+esc(a)+"</option>").join("");
+$("fSeg").innerHTML='<option value="">All segments</option>'+SEGS.map(s=>"<option>"+esc(s)+"</option>").join("");
+function render(){
+  const fa=$("fAcct").value,fs=$("fSeg").value;
+  const rs=ROWS.filter(r=>(!fa||r.acct===fa)&&(!fs||r.seg.includes(fs)))
+    .sort((a,b)=>ACCTS.indexOf(a.acct)-ACCTS.indexOf(b.acct)||MPS.indexOf(a.mp)-MPS.indexOf(b.mp)||b.TY.s-a.TY.s);
+  const h=["<thead><tr>"+COLS.map((c,i)=>'<th class="'+(i<2||i===20?"t":"")+'">'+c+"</th>").join("")+"</tr></thead><tbody>"];
+  let g=null;
+  for(const r of rs){const k=r.acct+" · "+r.mp;if(k!==g){h.push('<tr class="grp"><td colspan="'+COLS.length+'">'+esc(k)+"</td></tr>");g=k;}h.push(row(r));}
+  if(!rs.length)h.push('<tr><td class="t" colspan="'+COLS.length+'">No eBay IDs match the filters.</td></tr>');
+  $("t").innerHTML=h.join("")+"</tbody>";
+  $("count").textContent=nf0.format(rs.length)+" eBay IDs";
+}
+$("sub").textContent="September -Comparision · LY = 1–30 Sep 2025 · TY = 1–30 Sep 2026 · Generated "+DATA.generated_at;
+$("foot").innerHTML="LY/TY Sales = Completed eBay orders, in each marketplace's own currency. Ad Impressions, Ad Clicks, Ad Spend, Ad Sales and ROAS/ACOS = TY September. N/A = the formula can't be calculated because its divisor is 0. No data = no traffic data for that listing and year. "+
+  "Segment rules follow Ebay.xlsx. <b>Undetermined: B or D</b> means TY Sales &lt; LY Sales with TY &gt; 0: “recent sales improving” (B) and “TY Sales ≈ 0” (D) are not defined in the workbook.";
+$("fAcct").onchange=render;$("fSeg").onchange=render;
+render();
+})();
+</script>
+</body>
+</html>
