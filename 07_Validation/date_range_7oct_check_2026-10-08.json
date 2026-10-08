@@ -1,0 +1,137 @@
+[
+ {
+  "check": "Main + Price & SKU calendars: min 1 Sep 2026, max 7 Oct 2026, default 1 Sep -> 7 Oct",
+  "ok": true,
+  "detail": "[['2026-09-01', '2026-10-07', '2026-09-01'], ['2026-09-01', '2026-10-07', '2026-10-07'], ['2026-09-01', '2026-10-07', '2026-09-01'], ['2026-09-01', '2026-10-07', '2026-10-07']]"
+ },
+ {
+  "check": "main footnote: per-source latest dates, 7 Oct incomplete notice, dynamic example range",
+  "ok": true,
+  "detail": "PH = Portfolio Holder: an eBay ID belongs to every PH that the PH Google Sheet (Master Sheet Ebay 4th Cycle) or the ledsone PH tables assign it to, so an ID with two PHs appears under both. All PHs = IDs owned by any of the 30 PHs (each ID once); Unassigned = IDs with no PH in either source. Sales ="
+ },
+ {
+  "check": "main range message flags 7 Oct incomplete and Views only to 6 Oct",
+  "ok": true,
+  "detail": "Showing 1 Sep–7 Oct 2026 vs 1 Sep–7 Oct 2025 · includes October data (1–7 Oct 2026 vs 1–7 Oct 2025) · ad columns and Segment: full September · Views: traffic data only up to 6 Oct 2026 · data up to 7 Oct 2026 · 7 Oct 2026 incomplete in source: 113 eBay orders of that day not Completed yet (4 Hold, 109 New), not counted"
+ },
+ {
+  "check": "[7 Oct] main Excel: range in headers and file name",
+  "ok": true,
+  "detail": "(('LY Sales (7 Oct 2025)', 'TY Sales (7 Oct 2026)', 'YoY % (7 Oct 2026 vs 7 Oct 2025)'), ['Final_Output_Sales_All_PHs_2026-10-07_to_2026-10-07.xlsx', 'Final_Output_Sales_Unassigned_2026-10-07_to_2026-10-07.xlsx'])"
+ },
+ {
+  "check": "[7 Oct] main tab, 14,912 eBay IDs: every LY/TY Sales, Orders, TY Views == direct DB; Σ TY Sales 1145.34 / DB 1145.34, Σ TY Orders 47 / DB 47",
+  "ok": true,
+  "detail": "([], {'TYs': 1145.3400000000001, 'TYo': 47.0, 'LYs': 4717.669999999999, 'LYo': 254.0}, {'LY': (5018.1, 257), 'TY': (1145.34, 47)})"
+ },
+ {
+  "check": "[7 Oct] main Excel: no NaN / Infinity / undefined",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[7 Oct] every eBay ID with a 7 Oct 2026 Completed order shows TY Orders > 0 (46 IDs)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[7 Oct] TY Views: no traffic in source for 7 Oct -> only 0 / blank, no fabricated views",
+  "ok": true,
+  "detail": "{None}"
+ },
+ {
+  "check": "[7 Oct] Price & SKU Excel headers show 7 Oct 2026 / 7 Oct 2025",
+  "ok": true,
+  "detail": "('eBay ID', 'SKU', 'Category', 'Last Year Price (7 Oct 2025)', 'This Year Price (7 Oct 2026)', 'Current eBay Listing Price', 'Bos Balance Price (Healthy)', 'Ebay Price(Calculate with bos price to our ebay price)', 'sku with Sales (7 Oct 2026)')"
+ },
+ {
+  "check": "[7 Oct] Price & SKU tab (82,562 rows, 29 on 2-marketplace IDs skipped): LY/TY Price + selected-date order count == direct DB; no NaN",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[7 Oct] Price & SKU tab lists every eBay ID x SKU with a TY Completed order in the range (50)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1–6 Oct] main Excel: range in headers and file name",
+  "ok": true,
+  "detail": "(('LY Sales (1–6 Oct 2025)', 'TY Sales (1–6 Oct 2026)', 'YoY % (1–6 Oct 2026 vs 1–6 Oct 2025)'), ['Final_Output_Sales_All_PHs_2026-10-01_to_2026-10-06.xlsx', 'Final_Output_Sales_Unassigned_2026-10-01_to_2026-10-06.xlsx'])"
+ },
+ {
+  "check": "[1–6 Oct] main tab, 14,912 eBay IDs: every LY/TY Sales, Orders, TY Views == direct DB; Σ TY Sales 18376.41 / DB 18376.41, Σ TY Orders 841 / DB 841",
+  "ok": true,
+  "detail": "([], {'LYs': 25758.19000000002, 'LYo': 1403.0, 'TYs': 18376.40999999999, 'TYo': 841.0}, {'LY': (25799.15, 1407), 'TY': (18376.41, 841)})"
+ },
+ {
+  "check": "[1–6 Oct] main Excel: no NaN / Infinity / undefined",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1–6 Oct] Price & SKU tab (82,562 rows, 29 on 2-marketplace IDs skipped): LY/TY Price + selected-date order count == direct DB; no NaN",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1–6 Oct] Price & SKU tab lists every eBay ID x SKU with a TY Completed order in the range (779)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1 Sep–7 Oct] main Excel: range in headers and file name",
+  "ok": true,
+  "detail": "(('LY Sales (1 Sep–7 Oct 2025)', 'TY Sales (1 Sep–7 Oct 2026)', 'YoY % (1 Sep–7 Oct 2026 vs 1 Sep–7 Oct 2025)'), ['Final_Output_Sales_All_PHs_2026-09-01_to_2026-10-07.xlsx', 'Final_Output_Sales_Unassigned_2026-09-01_to_2026-10-07.xlsx'])"
+ },
+ {
+  "check": "[1 Sep–7 Oct] main tab, 14,912 eBay IDs: every LY/TY Sales, Orders, TY Views == direct DB; Σ TY Sales 118870.46 / DB 118870.46, Σ TY Orders 5397 / DB 5397",
+  "ok": true,
+  "detail": "([], {'LYs': 145562.3499999999, 'LYo': 7856.0, 'TYs': 118870.46000000012, 'TYo': 5397.0}, {'LY': (145903.74, 7863), 'TY': (118870.46, 5397)})"
+ },
+ {
+  "check": "[1 Sep–7 Oct] main Excel: no NaN / Infinity / undefined",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1 Sep–7 Oct] Price & SKU tab (82,562 rows, 29 on 2-marketplace IDs skipped): LY/TY Price + selected-date order count == direct DB; no NaN",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1 Sep–7 Oct] Price & SKU tab lists every eBay ID x SKU with a TY Completed order in the range (3,731)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1–30 Sep] main Excel: range in headers and file name",
+  "ok": true,
+  "detail": "(('LY Sales (1–30 Sep 2025)', 'TY Sales (1–30 Sep 2026)', 'YoY % (1–30 Sep 2026 vs 1–30 Sep 2025)'), ['Final_Output_Sales_All_PHs_2026-09-01_to_2026-09-30.xlsx', 'Final_Output_Sales_Unassigned_2026-09-01_to_2026-09-30.xlsx'])"
+ },
+ {
+  "check": "[1–30 Sep] main tab, 14,912 eBay IDs: every LY/TY Sales, Orders, TY Views == direct DB; Σ TY Sales 99348.71 / DB 99348.71, Σ TY Orders 4509 / DB 4509",
+  "ok": true,
+  "detail": "([], {'LYs': 115086.4899999999, 'LYo': 6199.0, 'TYs': 99348.7099999998, 'TYo': 4509.0}, {'LY': (115086.49, 6199), 'TY': (99348.71, 4509)})"
+ },
+ {
+  "check": "[1–30 Sep] main Excel: no NaN / Infinity / undefined",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1–30 Sep] Price & SKU tab (82,562 rows, 29 on 2-marketplace IDs skipped): LY/TY Price + selected-date order count == direct DB; no NaN",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "[1–30 Sep] Price & SKU tab lists every eBay ID x SKU with a TY Completed order in the range (3,235)",
+  "ok": true,
+  "detail": "[]"
+ },
+ {
+  "check": "no console / page errors",
+  "ok": true,
+  "detail": "[]"
+ }
+]

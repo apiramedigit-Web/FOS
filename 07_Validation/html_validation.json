@@ -8,14 +8,14 @@
    "detail": ""
   },
   {
-   "check": "header = the 21 Final OutPut Sales columns in workbook order",
+   "check": "header = the 19 Final OutPut Sales columns in workbook order (no LY/TY Price)",
    "ok": true,
-   "detail": "['eBay ID', 'SKU', 'LY Sales', 'TY Sales', 'YoY %', 'LY Ad Sales', 'TY Ad Sales', 'LY Views', 'TY Views', 'LY Orders', 'TY Orders', 'LY Conversion %', 'TY Conversion %', 'LY Price', 'TY Price', 'Ad Impressions', 'Ad Clicks', 'Ad Spend', 'Ad Sales', 'ROAS/ACOS', 'Segment']"
+   "detail": "['eBay ID', 'SKU', 'LY Sales', 'TY Sales', 'YoY %', 'LY Ad Sales', 'TY Ad Sales', 'LY Views', 'TY Views', 'LY Orders', 'TY Orders', 'LY Conversion %', 'TY Conversion %', 'Ad Impressions', 'Ad Clicks', 'Ad Spend', 'Ad Sales', 'ROAS/ACOS', 'Segment']"
   },
   {
-   "check": "filters = Account, Segment (requirement) + eBay ID/SKU search",
+   "check": "filters = PH, Category, Account, Segment + eBay ID/SKU search (Date From / Date To sit in the September Comparison Table card)",
    "ok": true,
-   "detail": "['Account', 'Segment', 'Search eBay ID / SKU']"
+   "detail": "['PH', 'Category', 'Account', 'Segment', 'Search eBay ID / SKU']"
   },
   {
    "check": "Account options = 'All accounts' + 6 workbook accounts in order",
@@ -28,9 +28,9 @@
    "detail": "['All segments', 'A – YoY Winner', 'C – Lost Ad Sales (Advanced)', 'C – Lost Ad Sales (Standard)', 'D – Lost Performer', 'No segment rule met', 'Undetermined: B or D']"
   },
   {
-   "check": "default view = all accounts, all segments, all IDs",
+   "check": "default view = All PHs, all accounts, all segments (every PH-owned ID)",
    "ok": true,
-   "detail": "Showing 1–50 of 14,902 eBay IDs"
+   "detail": "Showing 1–50 of 3,170 eBay IDs (filtered from 14,912)"
   },
   {
    "check": "pager: First/Prev/Page x of y/Next/Last + rows per page",
@@ -38,12 +38,12 @@
    "detail": ""
   },
   {
-   "check": "rows rendered across all pages = every eBay ID in scope (14,902)",
+   "check": "rows rendered across all pages (All PHs + Unassigned) = every eBay ID in scope (14,912)",
    "ok": true,
-   "detail": "(14902, 14902)"
+   "detail": "(14912, 14912)"
   },
   {
-   "check": "all 14,902 rows match independent recompute (21 columns, Std/Adv separately, tooltips, SKU source, segments)",
+   "check": "all 14,912 rows match independent recompute (19 columns, Std/Adv separately, tooltips, SKU source, segments)",
    "ok": true,
    "detail": "[]"
   },
@@ -53,12 +53,12 @@
    "detail": "[]"
   },
   {
-   "check": "'Not live in Sep 2025' shown on exactly the 2,564 listings created after Sep 2025 with no LY data",
+   "check": "'Not live in Sep 2025' shown on exactly the 2,574 listings created after Sep 2025 with no LY data",
    "ok": true,
-   "detail": "(2564, 2564)"
+   "detail": "(2574, 2574)"
   },
   {
-   "check": "SKU shown for every ID that has one in any source (only 4,010 have none anywhere)",
+   "check": "SKU shown for every ID that has one in any source (only 3,968 have none anywhere)",
    "ok": true,
    "detail": ""
   },
@@ -73,7 +73,7 @@
    "detail": "set()"
   },
   {
-   "check": "all 21 account header totals (LY/TY Sales) correct",
+   "check": "all 30 account header totals (LY/TY Sales; All PHs and Unassigned) correct",
    "ok": true,
    "detail": "[]"
   },
@@ -90,7 +90,7 @@
   {
    "check": "Account + Segment combined; ad values still shown under filter",
    "ok": true,
-   "detail": "91"
+   "detail": "49"
   },
   {
    "check": "search: eBay ID, SKU, partial/case-insensitive, listing SKU, combined with Account; no-match message; clear button",

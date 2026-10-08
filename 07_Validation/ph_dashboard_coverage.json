@@ -1,0 +1,734 @@
+{
+ "rule": "Dashboard grain = every eBay ID (account x marketplace x item_id) with a Sep 2025/2026 Completed order, traffic row or ad row in the 5 report accounts (03_SQL/extract.py). An official PH ID with none of these has no row by design.",
+ "per_ph": [
+  {
+   "ph": "Abinayaa",
+   "official_ids": 100,
+   "ids_in_dashboard": 100,
+   "dashboard_rows": 100,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Akalika",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Akanila",
+   "official_ids": 24,
+   "ids_in_dashboard": 24,
+   "dashboard_rows": 24,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Arudchelvi",
+   "official_ids": 158,
+   "ids_in_dashboard": 151,
+   "dashboard_rows": 151,
+   "missing_from_dashboard": [
+    "167925137533",
+    "317617478270",
+    "397350643554",
+    "397350676385",
+    "397350926728",
+    "397350957815",
+    "397351011555"
+   ]
+  },
+  {
+   "ph": "Dilakshiga",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Dilani",
+   "official_ids": 250,
+   "ids_in_dashboard": 250,
+   "dashboard_rows": 250,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Illakkiya",
+   "official_ids": 269,
+   "ids_in_dashboard": 267,
+   "dashboard_rows": 267,
+   "missing_from_dashboard": [
+    "317622667534",
+    "397341599176"
+   ]
+  },
+  {
+   "ph": "Jasmini",
+   "official_ids": 224,
+   "ids_in_dashboard": 224,
+   "dashboard_rows": 224,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Jathisha",
+   "official_ids": 42,
+   "ids_in_dashboard": 42,
+   "dashboard_rows": 42,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Jubista",
+   "official_ids": 60,
+   "ids_in_dashboard": 60,
+   "dashboard_rows": 60,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "mothajini",
+   "official_ids": 68,
+   "ids_in_dashboard": 66,
+   "dashboard_rows": 66,
+   "missing_from_dashboard": [
+    "167350000000",
+    "405385463876"
+   ]
+  },
+  {
+   "ph": "Nithushana",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "paulr",
+   "official_ids": 242,
+   "ids_in_dashboard": 236,
+   "dashboard_rows": 236,
+   "missing_from_dashboard": [
+    "164435980164",
+    "165236125797",
+    "165301917790",
+    "167990756362",
+    "267491510468",
+    "317453672617"
+   ]
+  },
+  {
+   "ph": "prasath",
+   "official_ids": 179,
+   "ids_in_dashboard": 179,
+   "dashboard_rows": 180,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "preethi",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Ramsika",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Renuha",
+   "official_ids": 92,
+   "ids_in_dashboard": 92,
+   "dashboard_rows": 92,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Saranya",
+   "official_ids": 76,
+   "ids_in_dashboard": 76,
+   "dashboard_rows": 76,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Sarbavi",
+   "official_ids": 42,
+   "ids_in_dashboard": 42,
+   "dashboard_rows": 42,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Shanthini",
+   "official_ids": 56,
+   "ids_in_dashboard": 56,
+   "dashboard_rows": 56,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "shimee",
+   "official_ids": 390,
+   "ids_in_dashboard": 367,
+   "dashboard_rows": 367,
+   "missing_from_dashboard": [
+    "267514530721",
+    "267558880339",
+    "316815884708",
+    "316828866338",
+    "316829059507",
+    "316839733400",
+    "316840235746",
+    "316844410185",
+    "316844759788",
+    "316863228194",
+    "316868714598",
+    "316916251317",
+    "317034071154",
+    "317444298396",
+    "317444468062",
+    "317453167541",
+    "317496435219",
+    "317496436541",
+    "317496466866",
+    "317496474317",
+    "317527107527",
+    "317568142615",
+    "405328319793"
+   ]
+  },
+  {
+   "ph": "thanusha",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Tharshana",
+   "official_ids": 54,
+   "ids_in_dashboard": 54,
+   "dashboard_rows": 54,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Tharsiga(nelli)",
+   "official_ids": 90,
+   "ids_in_dashboard": 90,
+   "dashboard_rows": 90,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Tharsika(jaffna)",
+   "official_ids": 160,
+   "ids_in_dashboard": 160,
+   "dashboard_rows": 160,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Theepana",
+   "official_ids": 76,
+   "ids_in_dashboard": 76,
+   "dashboard_rows": 76,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Thojika",
+   "official_ids": 0,
+   "ids_in_dashboard": 0,
+   "dashboard_rows": 0,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "thuwaraga",
+   "official_ids": 287,
+   "ids_in_dashboard": 277,
+   "dashboard_rows": 277,
+   "missing_from_dashboard": [
+    "167975864913",
+    "316899708429",
+    "317559047448",
+    "317559153900",
+    "317562219564",
+    "317562301057",
+    "317562442129",
+    "317562792619",
+    "317562895236",
+    "317562948625"
+   ]
+  },
+  {
+   "ph": "utharsika",
+   "official_ids": 184,
+   "ids_in_dashboard": 184,
+   "dashboard_rows": 184,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "Vaishnavi",
+   "official_ids": 96,
+   "ids_in_dashboard": 96,
+   "dashboard_rows": 96,
+   "missing_from_dashboard": []
+  },
+  {
+   "ph": "All PHs",
+   "official_ids": 3219,
+   "ids_in_dashboard": 3169,
+   "dashboard_rows": 3170,
+   "missing_from_dashboard": [
+    "164435980164",
+    "165236125797",
+    "165301917790",
+    "167350000000",
+    "167925137533",
+    "167975864913",
+    "167990756362",
+    "267491510468",
+    "267514530721",
+    "267558880339",
+    "316815884708",
+    "316828866338",
+    "316829059507",
+    "316839733400",
+    "316840235746",
+    "316844410185",
+    "316844759788",
+    "316863228194",
+    "316868714598",
+    "316899708429",
+    "316916251317",
+    "317034071154",
+    "317444298396",
+    "317444468062",
+    "317453167541",
+    "317453672617",
+    "317496435219",
+    "317496436541",
+    "317496466866",
+    "317496474317",
+    "317527107527",
+    "317559047448",
+    "317559153900",
+    "317562219564",
+    "317562301057",
+    "317562442129",
+    "317562792619",
+    "317562895236",
+    "317562948625",
+    "317568142615",
+    "317617478270",
+    "317622667534",
+    "397341599176",
+    "397350643554",
+    "397350676385",
+    "397350926728",
+    "397350957815",
+    "397351011555",
+    "405328319793",
+    "405385463876"
+   ]
+  }
+ ],
+ "missing_detail": [
+  {
+   "ebay_id": "164435980164",
+   "phs": [
+    "paulr"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: led_sone)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "165236125797",
+   "phs": [
+    "paulr"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: led_sone)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "165301917790",
+   "phs": [
+    "paulr"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: led_sone)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "167350000000",
+   "phs": [
+    "mothajini"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "167925137533",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "167975864913",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "167990756362",
+   "phs": [
+    "paulr"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "267491510468",
+   "phs": [
+    "paulr"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: electricalsone)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "267514530721",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: electricalsone)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "267558880339",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: electricalsone)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316815884708",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316828866338",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316829059507",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316839733400",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316840235746",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316844410185",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316844759788",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316863228194",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316868714598",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "Sept data only in a non-report account (order:neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316899708429",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "316916251317",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317034071154",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317444298396",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317444468062",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317453167541",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317453672617",
+   "phs": [
+    "paulr"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317496435219",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317496436541",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317496466866",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317496474317",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317527107527",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317559047448",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317559153900",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317562219564",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317562301057",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317562442129",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317562792619",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317562895236",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317562948625",
+   "phs": [
+    "thuwaraga"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317568142615",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: neighbourmarket)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317617478270",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "no Sept 2025/2026 Completed order, traffic or ad row in any account (listing: so_926407)",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "317622667534",
+   "phs": [
+    "Illakkiya"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "397341599176",
+   "phs": [
+    "Illakkiya"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "397350643554",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "397350676385",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "397350926728",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "397350957815",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "397351011555",
+   "phs": [
+    "Arudchelvi"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "405328319793",
+   "phs": [
+    "shimee"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  },
+  {
+   "ebay_id": "405385463876",
+   "phs": [
+    "mothajini"
+   ],
+   "reason": "not in listings.ebay_listings and no Sept order/traffic/ad row in any account",
+   "documented_rule_applies": true
+  }
+ ],
+ "unexplained_missing": [],
+ "live_source_keys_not_in_dashboard": [],
+ "dashboard_keys_not_in_live_source": []
+}

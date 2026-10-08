@@ -1,0 +1,7 @@
+{
+ "note": "Display-only account grouping overrides (business decision, 2026-10-07). The eBay data classifies these IDs as led_sone UK-site listings (GBP); the PH Sheet 'Master Sheet Ebay 4th Cycle' lists them in the Utharsika - Lampshade 'LEDSone UK Reg Germany' column. Only the account group changes; marketplace (UK, GBP), PH ownership and every value stay as extracted. Applies to these IDs only, not to other Sheet/data account differences.",
+ "ids": {
+  "163881546600": {"from_acct": "Ledsone", "mp": "UK", "acct": "ledsone uk de", "sheet_ph": "Utharsika", "sheet_account": "LEDSone UK Reg Germany", "sheet_cell": "row 19, col 59"},
+  "165540657165": {"from_acct": "Ledsone", "mp": "UK", "acct": "ledsone uk de", "sheet_ph": "Utharsika", "sheet_account": "LEDSone UK Reg Germany", "sheet_cell": "row 18, col 59"}
+ }
+}

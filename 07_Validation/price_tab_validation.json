@@ -1,0 +1,314 @@
+{
+ "overall": "PASS",
+ "snapshot": "2026-10-07",
+ "snapshots": [
+  "2026-10-07"
+ ],
+ "bos_published_at": "2026-10-05T19:47:51.898Z",
+ "counts": {
+  "SKU rows": 78602,
+  "single SKU rows": 40173,
+  "single with BOS": 1676,
+  "combo rows": 38429,
+  "Lampshade/Wall plug combo rows": 1096,
+  "Lampshade/Wall plug combos with BOS": 318,
+  "other-category combo rows": 37333,
+  "other combos with BOS (must be 0)": 0,
+  "rows with eBay Price": 2145,
+  "rows with no BLOS channel": 25672,
+  "rows with LY Price": 3995,
+  "rows with TY Price": 3236,
+  "SKU rows with sales = Yes": 6534,
+  "IDs with no SKU": 3960,
+  "eBay Price: no BLOS channel (Electricalsone Canada)": 15,
+  "BOS: lookup SKU not in BOS feed (feed has 334 SKUs)": 39275,
+  "LY blank although LY units": 0,
+  "TY blank although TY units": 0,
+  "BOS: populated": 1994,
+  "eBay Price: no BLOS channel (Electricalsone France)": 762,
+  "BOS: N/A: combo outside Lampshade / Wall plug": 37333,
+  "eBay Price: SKU not listed in the BLOS channel": 41236,
+  "eBay Price: populated": 2145,
+  "eBay Price: listed in BLOS but BLOS shows no Recommended Price (—)": 1218,
+  "eBay Price: no BLOS channel (Electricalsone US)": 1475,
+  "eBay Price: no BLOS channel (Huttenlampen Italy)": 1,
+  "eBay Price: no BLOS channel (Ledsone Canada)": 253,
+  "eBay Price: no BLOS channel (Ledsone France)": 4605,
+  "eBay Price: no BLOS channel (Ledsone Ireland)": 2,
+  "eBay Price: no BLOS channel (Ledsone Italy)": 1228,
+  "eBay Price: no BLOS channel (Ledsone Spain)": 157,
+  "eBay Price: no BLOS channel (Ledsone US)": 1509,
+  "eBay Price: no BLOS channel (Sunsone France)": 396,
+  "eBay Price: no BLOS channel (Sunsone Germany)": 2823,
+  "eBay Price: BLOS channel sunsone has no rows": 8331,
+  "eBay Price: no BLOS channel (Sunsone US)": 391,
+  "eBay Price: no BLOS channel (ledsone de UK)": 9,
+  "eBay Price: no BLOS channel (ledsone uk de Germany)": 12046,
+  "Utharsika SKU rows": 1342,
+  "Utharsika rows listed in their BLOS channel": 683,
+  "Utharsika rows with BLOS Recommended Price": 176,
+  "Utharsika rows with BOS Healthy": 330,
+  "Utharsika rows with LY / TY Price": "128 / 105",
+  "unique eBay IDs": 14912,
+  "unique SKUs": 27928,
+  "eBay ID x SKU pairs with LY units / TY units": "3995 / 3236",
+  "Utharsika eBay IDs": 184,
+  "Utharsika BLOS Recommended Price populated": 176,
+  "Utharsika Postage Included": 141,
+  "Utharsika Postage Not Included": 35,
+  "Utharsika postage status unavailable": 0,
+  "Utharsika source-found but dashboard-missing BLOS price": 0
+ },
+ "checks": [
+  {
+   "check": "price snapshots exist; latest has raw source evidence",
+   "ok": true,
+   "detail": "['2026-10-07']"
+  },
+  {
+   "check": "BLOS screen RECOMMENDED PRICE == API recommended_price for every SKU the API prices",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "BOS feed ok, required fields present",
+   "ok": true,
+   "detail": "['category', 'ceiling_source', 'currency', 'family_key', 'finish_code', 'finish_tier', 'identity_case_id', 'identity_detail', 'identity_features', 'identity_label', 'identity_status', 'identity_tone']"
+  },
+  {
+   "check": "snapshot BOS values == raw feed (net_healthy_gbp, ASSIGNED)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "snapshot BLOS values == raw BLOS screen / API evidence",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "BLOS API accessible now (login + ledsone channel)",
+   "ok": true,
+   "detail": "1404"
+  },
+  {
+   "check": "BLOS password not present in HTML, template, scripts, snapshots, reports or evidence",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "no duplicate eBay ID + SKU rows (expected)",
+   "ok": true,
+   "detail": "0"
+  },
+  {
+   "check": "expected non-'Oct order' rows == the main dashboard's eBay ID x SKU pairs (nothing lost, nothing added)",
+   "ok": true,
+   "detail": "(81663, 81663)"
+  },
+  {
+   "check": "'Oct order' rows (907) = exactly the eBay ID x SKUs with Completed orders only on the October days (daily_detail.json)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "no LY/TY Price blank where the SKU has Completed units",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Utharsika: every SKU BLOS prices in its channel shows that Recommended Price",
+   "ok": true,
+   "detail": "683"
+  },
+  {
+   "check": "no '+' combo outside Lampshade / Wall plug gets a BOS price",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Lampshade / Wall plug combos sit only on IDs in those Sheet categories",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "LY/TY Price shown for exactly the eBay ID x SKU pairs with Completed units (grain B)",
+   "ok": true,
+   "detail": "{'LY': (3995, 3995), 'TY': (3236, 3236)}"
+  },
+  {
+   "check": "exact-decimal rounding: 164624648612 / ENC6040 LY = 340.02 / 12 = 28.335 -> 28.34",
+   "ok": true,
+   "detail": "[({'id': '164624648612', 'acct': 'Ledsone', 'mp': 'UK', 'ph': [], 'ch': 'ledsone', 'cat': '', 'sku': 'ENC6040', 'rule': 0, 'fc': False, 'ss': 'led_sone', 's': (340.02, 12.0, 0.0, 0.0, 4, 0), 'own': (340.02, 12.0, 0.0, 0.0, 4, 0)}, {'lyp': 28.34, 'typ': None, 'bos': None, 'eb': None, 'sal': 'Yes', 'lyo': 4, 'tyo': 0, 'cat': ''})]"
+  },
+  {
+   "check": "every SKU row with its own Completed units has a sales record (no lost orders)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "main table no longer shows LY Price / TY Price",
+   "ok": true,
+   "detail": "['eBay ID', 'SKU', 'LY Sales', 'TY Sales', 'YoY %', 'LY Ad Sales', 'TY Ad Sales', 'LY Views', 'TY Views', 'LY Orders', 'TY Orders', 'LY Conversion %', 'TY Conversion %', 'Ad Impressions', 'Ad Clicks', 'Ad Spend', 'Ad Sales', 'ROAS/ACOS', 'Segment']"
+  },
+  {
+   "check": "new tab opens; main tab hidden",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "sales calendar (type=date) inside the Price & SKU card, 1 Sep 2026 -> 2026-10-07, default the whole period, October mentioned",
+   "ok": true,
+   "detail": "['date', 'date', '2026-09-01', '2026-10-07', '2026-09-01', '2026-10-07', True]"
+  },
+  {
+   "check": "tab columns are exactly the required columns (+ Current eBay Listing Price after This Year Price)",
+   "ok": true,
+   "detail": "['eBay ID', 'SKU', 'Category', 'Last Year Price', 'This Year Price', 'Current eBay Listing Price', 'Bos Balance Price (Healthy)', 'Ebay Price(Calculate with bos price to our ebay price)', 'sku with Sales']"
+  },
+  {
+   "check": "controls: PH, Category, Price snapshot From/To, Search eBay ID, Search SKU + Download Excel + Clear Filters",
+   "ok": true,
+   "detail": "['PH', 'Category', 'Price snapshot From', 'Price snapshot To', 'Search eBay ID', 'Search SKU']"
+  },
+  {
+   "check": "PH options identical to the main PH filter",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "date options = stored snapshots only",
+   "ok": true,
+   "detail": "['2026-10-07']"
+  },
+  {
+   "check": "single snapshot -> earlier dates shown as Not Available",
+   "ok": true,
+   "detail": "Price snapshots stored: 7 Oct 2026. Earlier dates: Not Available. BOS and BLOS give only the current price, so history starts with the first daily snapshot and is never back-filled. Showing BOS / BLOS"
+  },
+  {
+   "check": "All PHs + Unassigned: every row shown once and matches the recompute (82,562 rows, 7 columns)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "eBay ID shown only on the first SKU row of each ID (and at the top of a page)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "no undefined / NaN / Infinity / null rendered",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "page: 0 other-category combo rows with a BOS price",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Utharsika: every eBay ID x SKU shows the exact BLOS Recommended Price and the source postage status (1342 rows)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "eBay ID drawn once per group in one merged box, centred (rowspan = SKU rows of the group)",
+   "ok": true,
+   "detail": "[[8, 8, 'center', 'middle', 'sticky'], [14, 14, 'center', 'middle', 'sticky'], [3, 3, 'center', 'middle', 'sticky']]"
+  },
+  {
+   "check": "'sku with Sales' shows the Sep 2026 order count (digits), never Yes/No",
+   "ok": true,
+   "detail": "['4', '4', '1', '2', '1']"
+  },
+  {
+   "check": "Sep Orders count orders, not units (rows where TY units > TY orders show the order count)",
+   "ok": true,
+   "detail": "960 rows with units > orders"
+  },
+  {
+   "check": "currency symbol per value (marketplace / GBP for BOS / BLOS channel currency)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "eBay ID column frozen left and header frozen top while scrolled (no overlap)",
+   "ok": true,
+   "detail": "{'scrolledX': 600, 'idLeft': 1, 'idText': '165561143431', 'thTop': 1, 'thLeft': 1, 'th5Top': 1, 'topCell': True}"
+  },
+  {
+   "check": "PH filter: All PHs, each of 30 PHs and Unassigned show exactly their rows and IDs",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "PH selection syncs with the main tab",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "eBay ID search (partial '1645252') shows exactly the matching rows",
+   "ok": true,
+   "detail": "(54, 54)"
+  },
+  {
+   "check": "SKU search (case-insensitive 'rpr44wh') count",
+   "ok": true,
+   "detail": "1648"
+  },
+  {
+   "check": "no-match search shows a clear message",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Category dropdown: options = every PH Sheet category + All + No category; filter counts match",
+   "ok": true,
+   "detail": "(1245, 1245, 0, 54)"
+  },
+  {
+   "check": "Clear Filters resets PH, dates, searches, sales calendar (1 Sep 2026 -> latest order date)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "sort by BOS ascending, blanks last",
+   "ok": true,
+   "detail": "['1.48', '1.48', '1.48', '1.48', '1.48']"
+  },
+  {
+   "check": "sort by BOS descending, blanks last",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Current eBay Listing Price: 300 random eBay ID x SKU keys == direct ledsone listings.ebay_listings query (76,389 of 78,602 rows priced, synced 2026-10-08 03:20:51)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Excel download (utharsika): opens, sheet/header/freeze OK, 1,344 rows == page, values + ID-once format exact",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Excel download (All PHs): opens, sheet/header/freeze OK, 20,523 rows == page, values + ID-once format exact",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "sales calendar 1 Oct–2026-10-07 and 16 Sep–2026-10-07: every PH-owned eBay ID x SKU row's LY/TY Price and order count == direct DB query (40,628 rows)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "no JS errors / console errors",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "date comparison (test copy, synthetic 2nd date): changed value shows 'was', missing earlier value shows 'Not Available'",
+   "ok": true,
+   "detail": "('CBFF140BM', 1, ['was 0.52 (+1.00) on 7 Oct 2026'], 'CBFF200WH', 1, ['7 Oct 2026: Not Available'])"
+  }
+ ]
+}

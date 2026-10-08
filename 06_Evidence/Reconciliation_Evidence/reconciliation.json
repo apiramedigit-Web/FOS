@@ -19,15 +19,15 @@
   {
    "check": "Sales",
    "key": "electricalsone | France | TY",
-   "source": 39.29,
-   "report": 39.29,
+   "source": 47.73,
+   "report": 47.73,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "electricalsone | France | TY",
-   "source": 1,
-   "report": 1,
+   "source": 2,
+   "report": 2,
    "ok": true
   },
   {
@@ -47,15 +47,15 @@
   {
    "check": "Sales",
    "key": "electricalsone | Germany | TY",
-   "source": 2233.95,
-   "report": 2233.95,
+   "source": 2334.39,
+   "report": 2334.39,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "electricalsone | Germany | TY",
-   "source": 97,
-   "report": 97,
+   "source": 100,
+   "report": 100,
    "ok": true
   },
   {
@@ -75,15 +75,15 @@
   {
    "check": "Sales",
    "key": "electricalsone | UK | TY",
-   "source": 16072.16,
-   "report": 16072.16,
+   "source": 16329.04,
+   "report": 16329.04,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "electricalsone | UK | TY",
-   "source": 849,
-   "report": 849,
+   "source": 869,
+   "report": 869,
    "ok": true
   },
   {
@@ -117,15 +117,15 @@
   {
    "check": "Sales",
    "key": "huettenlampen | Germany | TY",
-   "source": 10788.28,
-   "report": 10788.28,
+   "source": 11352.57,
+   "report": 11352.57,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "huettenlampen | Germany | TY",
-   "source": 355,
-   "report": 355,
+   "source": 371,
+   "report": 371,
    "ok": true
   },
   {
@@ -173,15 +173,15 @@
   {
    "check": "Sales",
    "key": "led_sone | Germany | TY",
-   "source": 7019.76,
-   "report": 7019.76,
+   "source": 7345.34,
+   "report": 7345.34,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "led_sone | Germany | TY",
-   "source": 262,
-   "report": 262,
+   "source": 269,
+   "report": 269,
    "ok": true
   },
   {
@@ -215,15 +215,15 @@
   {
    "check": "Sales",
    "key": "led_sone | UK | TY",
-   "source": 35246.73,
-   "report": 35246.73,
+   "source": 35631.65,
+   "report": 35631.65,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "led_sone | UK | TY",
-   "source": 1942,
-   "report": 1942,
+   "source": 1976,
+   "report": 1976,
    "ok": true
   },
   {
@@ -271,15 +271,15 @@
   {
    "check": "Sales",
    "key": "ledsonede | Germany | TY",
-   "source": 9014.19,
-   "report": 9014.19,
+   "source": 9345.4,
+   "report": 9345.4,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "ledsonede | Germany | TY",
-   "source": 305,
-   "report": 305,
+   "source": 318,
+   "report": 318,
    "ok": true
   },
   {
@@ -341,15 +341,15 @@
   {
    "check": "Sales",
    "key": "so_926407 | Germany | TY",
-   "source": 2345.44,
-   "report": 2345.44,
+   "source": 2398.52,
+   "report": 2398.52,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "so_926407 | Germany | TY",
-   "source": 88,
-   "report": 88,
+   "source": 90,
+   "report": 90,
    "ok": true
   },
   {
@@ -369,29 +369,29 @@
   {
    "check": "Sales",
    "key": "so_926407 | UK | TY",
-   "source": 12045.32,
-   "report": 12045.32,
+   "source": 12211.75,
+   "report": 12211.75,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "so_926407 | UK | TY",
-   "source": 466,
-   "report": 466,
+   "source": 476,
+   "report": 476,
    "ok": true
   },
   {
    "check": "Sales",
    "key": "so_926407 | US | TY",
-   "source": 78.66,
-   "report": 78.66,
+   "source": 38.8,
+   "report": 38.8,
    "ok": true
   },
   {
    "check": "Orders (listing-level)",
    "key": "so_926407 | US | TY",
-   "source": 2,
-   "report": 2,
+   "source": 1,
+   "report": 1,
    "ok": true
   },
   {
@@ -411,15 +411,15 @@
   {
    "check": "Views",
    "key": "electricalsone | France | TY",
-   "source": 267.0,
-   "report": 267.0,
+   "source": 274.0,
+   "report": 274.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "electricalsone | France | TY",
-   "source": 124831.0,
-   "report": 124831.0,
+   "source": 131054.0,
+   "report": 131054.0,
    "ok": true
   },
   {
@@ -439,15 +439,15 @@
   {
    "check": "Views",
    "key": "electricalsone | Germany | TY",
-   "source": 3936.0,
-   "report": 3936.0,
+   "source": 4096.0,
+   "report": 4096.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "electricalsone | Germany | TY",
-   "source": 1863539.0,
-   "report": 1863539.0,
+   "source": 1945056.0,
+   "report": 1945056.0,
    "ok": true
   },
   {
@@ -467,15 +467,15 @@
   {
    "check": "Views",
    "key": "electricalsone | UK | TY",
-   "source": 30676.0,
-   "report": 30676.0,
+   "source": 31847.0,
+   "report": 31847.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "electricalsone | UK | TY",
-   "source": 15359026.0,
-   "report": 15359026.0,
+   "source": 15924103.0,
+   "report": 15924103.0,
    "ok": true
   },
   {
@@ -495,15 +495,15 @@
   {
    "check": "Views",
    "key": "electricalsone | US | TY",
-   "source": 1491.0,
-   "report": 1491.0,
+   "source": 1537.0,
+   "report": 1537.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "electricalsone | US | TY",
-   "source": 499022.0,
-   "report": 499022.0,
+   "source": 515428.0,
+   "report": 515428.0,
    "ok": true
   },
   {
@@ -523,15 +523,15 @@
   {
    "check": "Views",
    "key": "huettenlampen | Germany | TY",
-   "source": 11956.0,
-   "report": 11956.0,
+   "source": 12370.0,
+   "report": 12370.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "huettenlampen | Germany | TY",
-   "source": 5182526.0,
-   "report": 5182526.0,
+   "source": 5386590.0,
+   "report": 5386590.0,
    "ok": true
   },
   {
@@ -551,15 +551,15 @@
   {
    "check": "Views",
    "key": "led_sone | France | TY",
-   "source": 517.0,
-   "report": 517.0,
+   "source": 546.0,
+   "report": 546.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "led_sone | France | TY",
-   "source": 141863.0,
-   "report": 141863.0,
+   "source": 147985.0,
+   "report": 147985.0,
    "ok": true
   },
   {
@@ -579,15 +579,15 @@
   {
    "check": "Views",
    "key": "led_sone | Germany | TY",
-   "source": 12957.0,
-   "report": 12957.0,
+   "source": 13353.0,
+   "report": 13353.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "led_sone | Germany | TY",
-   "source": 6720373.0,
-   "report": 6720373.0,
+   "source": 6942378.0,
+   "report": 6942378.0,
    "ok": true
   },
   {
@@ -607,15 +607,15 @@
   {
    "check": "Views",
    "key": "led_sone | UK | TY",
-   "source": 78438.0,
-   "report": 78438.0,
+   "source": 81346.0,
+   "report": 81346.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "led_sone | UK | TY",
-   "source": 40857637.0,
-   "report": 40857637.0,
+   "source": 42146182.0,
+   "report": 42146182.0,
    "ok": true
   },
   {
@@ -635,15 +635,15 @@
   {
    "check": "Views",
    "key": "led_sone | US | TY",
-   "source": 1187.0,
-   "report": 1187.0,
+   "source": 1232.0,
+   "report": 1232.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "led_sone | US | TY",
-   "source": 621451.0,
-   "report": 621451.0,
+   "source": 630776.0,
+   "report": 630776.0,
    "ok": true
   },
   {
@@ -663,15 +663,15 @@
   {
    "check": "Views",
    "key": "ledsonede | Germany | TY",
-   "source": 12149.0,
-   "report": 12149.0,
+   "source": 12578.0,
+   "report": 12578.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "ledsonede | Germany | TY",
-   "source": 6526053.0,
-   "report": 6526053.0,
+   "source": 6768658.0,
+   "report": 6768658.0,
    "ok": true
   },
   {
@@ -698,8 +698,8 @@
   {
    "check": "Organic Impressions",
    "key": "ledsonede | UK | TY",
-   "source": 3899.0,
-   "report": 3899.0,
+   "source": 4073.0,
+   "report": 4073.0,
    "ok": true
   },
   {
@@ -719,15 +719,15 @@
   {
    "check": "Views",
    "key": "so_926407 | France | TY",
-   "source": 210.0,
-   "report": 210.0,
+   "source": 216.0,
+   "report": 216.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "so_926407 | France | TY",
-   "source": 52779.0,
-   "report": 52779.0,
+   "source": 54571.0,
+   "report": 54571.0,
    "ok": true
   },
   {
@@ -747,15 +747,15 @@
   {
    "check": "Views",
    "key": "so_926407 | Germany | TY",
-   "source": 3643.0,
-   "report": 3643.0,
+   "source": 3758.0,
+   "report": 3758.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "so_926407 | Germany | TY",
-   "source": 1956264.0,
-   "report": 1956264.0,
+   "source": 2022225.0,
+   "report": 2022225.0,
    "ok": true
   },
   {
@@ -775,43 +775,43 @@
   {
    "check": "Views",
    "key": "so_926407 | UK | TY",
-   "source": 26614.0,
-   "report": 26614.0,
+   "source": 27332.0,
+   "report": 27332.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "so_926407 | UK | TY",
-   "source": 14101096.0,
-   "report": 14101096.0,
+   "source": 14468995.0,
+   "report": 14468995.0,
    "ok": true
   },
   {
    "check": "Views",
    "key": "so_926407 | US | TY",
-   "source": 287.0,
-   "report": 287.0,
+   "source": 315.0,
+   "report": 315.0,
    "ok": true
   },
   {
    "check": "Organic Impressions",
    "key": "so_926407 | US | TY",
-   "source": 73174.0,
-   "report": 73174.0,
+   "source": 77834.0,
+   "report": 77834.0,
    "ok": true
   },
   {
    "check": "Ad Impressions",
    "key": "electricalsone | UK | TY | COST_PER_SALE",
-   "source": 5184761.0,
-   "report": 5184761.0,
+   "source": 5176506.0,
+   "report": 5176506.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "electricalsone | UK | TY | COST_PER_SALE",
-   "source": 5132.0,
-   "report": 5132.0,
+   "source": 5112.0,
+   "report": 5112.0,
    "ok": true
   },
   {
@@ -824,22 +824,22 @@
   {
    "check": "Ad Sales",
    "key": "electricalsone | UK | TY | COST_PER_SALE",
-   "source": 10759.23,
-   "report": 10759.23,
+   "source": 10787.99,
+   "report": 10787.99,
    "ok": true
   },
   {
    "check": "Ad Impressions",
    "key": "electricalsone | US | TY | COST_PER_SALE",
-   "source": 334364.0,
-   "report": 334364.0,
+   "source": 332497.0,
+   "report": 332497.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "electricalsone | US | TY | COST_PER_SALE",
-   "source": 642.0,
-   "report": 642.0,
+   "source": 631.0,
+   "report": 631.0,
    "ok": true
   },
   {
@@ -915,22 +915,22 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | UK | TY | ON_SITE",
-   "source": 10909738.0,
-   "report": 10909738.0,
+   "source": 10871548.0,
+   "report": 10871548.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "led_sone | UK | TY | ON_SITE",
-   "source": 21736.0,
-   "report": 21736.0,
+   "source": 20741.0,
+   "report": 20741.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "led_sone | UK | TY | ON_SITE",
-   "source": 3961.85,
-   "report": 3961.85,
+   "source": 3708.87,
+   "report": 3708.87,
    "ok": true
   },
   {
@@ -971,15 +971,15 @@
   {
    "check": "Ad Impressions",
    "key": "huettenlampen | Germany | TY | COST_PER_SALE",
-   "source": 1087874.0,
-   "report": 1087874.0,
+   "source": 1086586.0,
+   "report": 1086586.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "huettenlampen | Germany | TY | COST_PER_SALE",
-   "source": 915.0,
-   "report": 915.0,
+   "source": 916.0,
+   "report": 916.0,
    "ok": true
   },
   {
@@ -999,8 +999,8 @@
   {
    "check": "Ad Impressions",
    "key": "so_926407 | US | TY | COST_PER_SALE",
-   "source": 44978.0,
-   "report": 44978.0,
+   "source": 44752.0,
+   "report": 44752.0,
    "ok": true
   },
   {
@@ -1111,8 +1111,8 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | Italy | TY | COST_PER_SALE",
-   "source": 56783.0,
-   "report": 56783.0,
+   "source": 56420.0,
+   "report": 56420.0,
    "ok": true
   },
   {
@@ -1139,22 +1139,22 @@
   {
    "check": "Ad Impressions",
    "key": "huettenlampen | Germany | TY | ON_SITE",
-   "source": 1479081.0,
-   "report": 1479081.0,
+   "source": 1476608.0,
+   "report": 1476608.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "huettenlampen | Germany | TY | ON_SITE",
-   "source": 5410.0,
-   "report": 5410.0,
+   "source": 5316.0,
+   "report": 5316.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "huettenlampen | Germany | TY | ON_SITE",
-   "source": 969.12,
-   "report": 969.12,
+   "source": 949.12,
+   "report": 949.12,
    "ok": true
   },
   {
@@ -1195,22 +1195,22 @@
   {
    "check": "Ad Impressions",
    "key": "so_926407 | UK | TY | ON_SITE",
-   "source": 2983102.0,
-   "report": 2983102.0,
+   "source": 2979549.0,
+   "report": 2979549.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "so_926407 | UK | TY | ON_SITE",
-   "source": 6469.0,
-   "report": 6469.0,
+   "source": 6347.0,
+   "report": 6347.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "so_926407 | UK | TY | ON_SITE",
-   "source": 958.6,
-   "report": 958.6,
+   "source": 931.28,
+   "report": 931.28,
    "ok": true
   },
   {
@@ -1251,22 +1251,22 @@
   {
    "check": "Ad Impressions",
    "key": "electricalsone | UK | TY | ON_SITE",
-   "source": 3184811.0,
-   "report": 3184811.0,
+   "source": 3176848.0,
+   "report": 3176848.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "electricalsone | UK | TY | ON_SITE",
-   "source": 5846.0,
-   "report": 5846.0,
+   "source": 5694.0,
+   "report": 5694.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "electricalsone | UK | TY | ON_SITE",
-   "source": 927.34,
-   "report": 927.34,
+   "source": 890.31,
+   "report": 890.31,
    "ok": true
   },
   {
@@ -1279,15 +1279,15 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | US | TY | COST_PER_SALE",
-   "source": 194720.0,
-   "report": 194720.0,
+   "source": 194191.0,
+   "report": 194191.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "led_sone | US | TY | COST_PER_SALE",
-   "source": 281.0,
-   "report": 281.0,
+   "source": 279.0,
+   "report": 279.0,
    "ok": true
   },
   {
@@ -1363,15 +1363,15 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | Germany | TY | COST_PER_SALE",
-   "source": 2285658.0,
-   "report": 2285658.0,
+   "source": 2283743.0,
+   "report": 2283743.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "led_sone | Germany | TY | COST_PER_SALE",
-   "source": 2471.0,
-   "report": 2471.0,
+   "source": 2466.0,
+   "report": 2466.0,
    "ok": true
   },
   {
@@ -1391,22 +1391,22 @@
   {
    "check": "Ad Impressions",
    "key": "ledsonede | Germany | TY | ON_SITE",
-   "source": 1917228.0,
-   "report": 1917228.0,
+   "source": 1914332.0,
+   "report": 1914332.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "ledsonede | Germany | TY | ON_SITE",
-   "source": 5699.0,
-   "report": 5699.0,
+   "source": 5663.0,
+   "report": 5663.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "ledsonede | Germany | TY | ON_SITE",
-   "source": 949.65,
-   "report": 949.65,
+   "source": 940.81,
+   "report": 940.81,
    "ok": true
   },
   {
@@ -1447,8 +1447,8 @@
   {
    "check": "Ad Impressions",
    "key": "ledsonede | UK | TY | COST_PER_SALE",
-   "source": 3180.0,
-   "report": 3180.0,
+   "source": 3178.0,
+   "report": 3178.0,
    "ok": true
   },
   {
@@ -1587,15 +1587,15 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | UK | TY | COST_PER_SALE",
-   "source": 8705129.0,
-   "report": 8705129.0,
+   "source": 8672413.0,
+   "report": 8672413.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "led_sone | UK | TY | COST_PER_SALE",
-   "source": 8388.0,
-   "report": 8388.0,
+   "source": 8368.0,
+   "report": 8368.0,
    "ok": true
   },
   {
@@ -1671,22 +1671,22 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | Germany | TY | ON_SITE",
-   "source": 1368960.0,
-   "report": 1368960.0,
+   "source": 1367246.0,
+   "report": 1367246.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "led_sone | Germany | TY | ON_SITE",
-   "source": 3443.0,
-   "report": 3443.0,
+   "source": 3433.0,
+   "report": 3433.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "led_sone | Germany | TY | ON_SITE",
-   "source": 633.12,
-   "report": 633.12,
+   "source": 631.13,
+   "report": 631.13,
    "ok": true
   },
   {
@@ -1699,15 +1699,15 @@
   {
    "check": "Ad Impressions",
    "key": "electricalsone | Germany | TY | COST_PER_SALE",
-   "source": 604198.0,
-   "report": 604198.0,
+   "source": 603494.0,
+   "report": 603494.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "electricalsone | Germany | TY | COST_PER_SALE",
-   "source": 665.0,
-   "report": 665.0,
+   "source": 661.0,
+   "report": 661.0,
    "ok": true
   },
   {
@@ -1755,15 +1755,15 @@
   {
    "check": "Ad Impressions",
    "key": "so_926407 | UK | TY | COST_PER_SALE",
-   "source": 2549600.0,
-   "report": 2549600.0,
+   "source": 2546180.0,
+   "report": 2546180.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "so_926407 | UK | TY | COST_PER_SALE",
-   "source": 3141.0,
-   "report": 3141.0,
+   "source": 3139.0,
+   "report": 3139.0,
    "ok": true
   },
   {
@@ -1783,8 +1783,8 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | France | TY | ON_SITE",
-   "source": 17694.0,
-   "report": 17694.0,
+   "source": 17627.0,
+   "report": 17627.0,
    "ok": true
   },
   {
@@ -1839,15 +1839,15 @@
   {
    "check": "Ad Impressions",
    "key": "so_926407 | Germany | TY | COST_PER_SALE",
-   "source": 420937.0,
-   "report": 420937.0,
+   "source": 420555.0,
+   "report": 420555.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "so_926407 | Germany | TY | COST_PER_SALE",
-   "source": 460.0,
-   "report": 460.0,
+   "source": 458.0,
+   "report": 458.0,
    "ok": true
   },
   {
@@ -2035,22 +2035,22 @@
   {
    "check": "Ad Impressions",
    "key": "electricalsone | Germany | TY | ON_SITE",
-   "source": 417375.0,
-   "report": 417375.0,
+   "source": 415756.0,
+   "report": 415756.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "electricalsone | Germany | TY | ON_SITE",
-   "source": 1127.0,
-   "report": 1127.0,
+   "source": 1125.0,
+   "report": 1125.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "electricalsone | Germany | TY | ON_SITE",
-   "source": 179.6,
-   "report": 179.6,
+   "source": 178.64,
+   "report": 178.64,
    "ok": true
   },
   {
@@ -2147,8 +2147,8 @@
   {
    "check": "Ad Impressions",
    "key": "electricalsone | France | TY | ON_SITE",
-   "source": 26483.0,
-   "report": 26483.0,
+   "source": 26089.0,
+   "report": 26089.0,
    "ok": true
   },
   {
@@ -2259,15 +2259,15 @@
   {
    "check": "Ad Impressions",
    "key": "ledsonede | Germany | TY | COST_PER_SALE",
-   "source": 1479619.0,
-   "report": 1479619.0,
+   "source": 1477645.0,
+   "report": 1477645.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "ledsonede | Germany | TY | COST_PER_SALE",
-   "source": 1564.0,
-   "report": 1564.0,
+   "source": 1562.0,
+   "report": 1562.0,
    "ok": true
   },
   {
@@ -2315,8 +2315,8 @@
   {
    "check": "Ad Impressions",
    "key": "so_926407 | France | TY | COST_PER_SALE",
-   "source": 40055.0,
-   "report": 40055.0,
+   "source": 39955.0,
+   "report": 39955.0,
    "ok": true
   },
   {
@@ -2399,8 +2399,8 @@
   {
    "check": "Ad Impressions",
    "key": "led_sone | France | TY | COST_PER_SALE",
-   "source": 68278.0,
-   "report": 68278.0,
+   "source": 68134.0,
+   "report": 68134.0,
    "ok": true
   },
   {
@@ -2455,8 +2455,8 @@
   {
    "check": "Ad Impressions",
    "key": "electricalsone | France | TY | COST_PER_SALE",
-   "source": 55531.0,
-   "report": 55531.0,
+   "source": 55322.0,
+   "report": 55322.0,
    "ok": true
   },
   {
@@ -2469,36 +2469,36 @@
   {
    "check": "Ad Spend",
    "key": "electricalsone | France | TY | COST_PER_SALE",
-   "source": 0.0,
-   "report": 0.0,
+   "source": 0.67,
+   "report": 0.67,
    "ok": true
   },
   {
    "check": "Ad Sales",
    "key": "electricalsone | France | TY | COST_PER_SALE",
-   "source": 0.0,
-   "report": 0.0,
+   "source": 8.44,
+   "report": 8.44,
    "ok": true
   },
   {
    "check": "Ad Impressions",
    "key": "so_926407 | Germany | TY | ON_SITE",
-   "source": 505263.0,
-   "report": 505263.0,
+   "source": 504311.0,
+   "report": 504311.0,
    "ok": true
   },
   {
    "check": "Ad Clicks",
    "key": "so_926407 | Germany | TY | ON_SITE",
-   "source": 1138.0,
-   "report": 1138.0,
+   "source": 1139.0,
+   "report": 1139.0,
    "ok": true
   },
   {
    "check": "Ad Spend",
    "key": "so_926407 | Germany | TY | ON_SITE",
-   "source": 145.98,
-   "report": 145.98,
+   "source": 145.91,
+   "report": 145.91,
    "ok": true
   },
   {
@@ -2521,12 +2521,12 @@
   },
   {
    "key": "electricalsone | France | TY",
-   "distinct_orders": 1,
-   "listing_orders": 1,
-   "listings": 1,
-   "skus": 1,
+   "distinct_orders": 2,
+   "listing_orders": 2,
+   "listings": 2,
+   "skus": 2,
    "blank_sku_lines": 0,
-   "lines": 1
+   "lines": 2
   },
   {
    "key": "electricalsone | Germany | LY",
@@ -2539,12 +2539,12 @@
   },
   {
    "key": "electricalsone | Germany | TY",
-   "distinct_orders": 96,
-   "listing_orders": 97,
-   "listings": 48,
-   "skus": 73,
+   "distinct_orders": 99,
+   "listing_orders": 100,
+   "listings": 50,
+   "skus": 76,
    "blank_sku_lines": 0,
-   "lines": 105
+   "lines": 108
   },
   {
    "key": "electricalsone | UK | LY",
@@ -2557,12 +2557,12 @@
   },
   {
    "key": "electricalsone | UK | TY",
-   "distinct_orders": 834,
-   "listing_orders": 849,
-   "listings": 262,
-   "skus": 518,
+   "distinct_orders": 852,
+   "listing_orders": 869,
+   "listings": 264,
+   "skus": 526,
    "blank_sku_lines": 0,
-   "lines": 894
+   "lines": 914
   },
   {
    "key": "electricalsone | US | TY",
@@ -2584,12 +2584,12 @@
   },
   {
    "key": "huettenlampen | Germany | TY",
-   "distinct_orders": 354,
-   "listing_orders": 355,
-   "listings": 97,
-   "skus": 209,
+   "distinct_orders": 370,
+   "listing_orders": 371,
+   "listings": 98,
+   "skus": 218,
    "blank_sku_lines": 0,
-   "lines": 387
+   "lines": 406
   },
   {
    "key": "led_sone | France | LY",
@@ -2620,12 +2620,12 @@
   },
   {
    "key": "led_sone | Germany | TY",
-   "distinct_orders": 260,
-   "listing_orders": 262,
-   "listings": 121,
-   "skus": 198,
+   "distinct_orders": 266,
+   "listing_orders": 269,
+   "listings": 125,
+   "skus": 207,
    "blank_sku_lines": 0,
-   "lines": 273
+   "lines": 283
   },
   {
    "key": "led_sone | Ireland | TY",
@@ -2647,12 +2647,12 @@
   },
   {
    "key": "led_sone | UK | TY",
-   "distinct_orders": 1883,
-   "listing_orders": 1942,
-   "listings": 549,
-   "skus": 972,
+   "distinct_orders": 1916,
+   "listing_orders": 1976,
+   "listings": 552,
+   "skus": 977,
    "blank_sku_lines": 0,
-   "lines": 2012
+   "lines": 2047
   },
   {
    "key": "led_sone | US | LY",
@@ -2683,12 +2683,12 @@
   },
   {
    "key": "ledsonede | Germany | TY",
-   "distinct_orders": 301,
-   "listing_orders": 305,
-   "listings": 116,
-   "skus": 220,
+   "distinct_orders": 314,
+   "listing_orders": 318,
+   "listings": 120,
+   "skus": 227,
    "blank_sku_lines": 0,
-   "lines": 328
+   "lines": 341
   },
   {
    "key": "ledsonede | UK | LY",
@@ -2728,12 +2728,12 @@
   },
   {
    "key": "so_926407 | Germany | TY",
-   "distinct_orders": 88,
-   "listing_orders": 88,
+   "distinct_orders": 90,
+   "listing_orders": 90,
    "listings": 37,
-   "skus": 64,
+   "skus": 65,
    "blank_sku_lines": 0,
-   "lines": 98
+   "lines": 100
   },
   {
    "key": "so_926407 | UK | LY",
@@ -2746,21 +2746,21 @@
   },
   {
    "key": "so_926407 | UK | TY",
-   "distinct_orders": 464,
-   "listing_orders": 466,
-   "listings": 223,
-   "skus": 349,
+   "distinct_orders": 474,
+   "listing_orders": 476,
+   "listings": 227,
+   "skus": 359,
    "blank_sku_lines": 0,
-   "lines": 483
+   "lines": 495
   },
   {
    "key": "so_926407 | US | TY",
-   "distinct_orders": 2,
-   "listing_orders": 2,
-   "listings": 2,
-   "skus": 2,
+   "distinct_orders": 1,
+   "listing_orders": 1,
+   "listings": 1,
+   "skus": 1,
    "blank_sku_lines": 0,
-   "lines": 2
+   "lines": 1
   }
  ],
  "totals": {
@@ -2772,15 +2772,15 @@
    "report_views": 242059.0
   },
   "TY": {
-   "source_listing_orders": 4404,
-   "report_listing_orders": 4404,
-   "source_distinct_orders": 4320,
-   "source_views": 184338.0,
-   "report_views": 184338.0
+   "source_listing_orders": 4509,
+   "report_listing_orders": 4509,
+   "source_distinct_orders": 4421,
+   "source_views": 190810.0,
+   "report_views": 190810.0
   }
  },
- "report_rows": 18952,
- "report_sku_rows": 6470,
- "unique_ebay_ids": 14900,
- "unique_skus": 3131
+ "report_rows": 19011,
+ "report_sku_rows": 6534,
+ "unique_ebay_ids": 14910,
+ "unique_skus": 3152
 }

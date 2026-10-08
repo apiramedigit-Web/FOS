@@ -1,0 +1,641 @@
+{
+ "n": 43,
+ "failed": 0,
+ "multi_ph_ids_in_report": 0,
+ "mapped_ids_not_in_report": 50,
+ "results": [
+  {
+   "check": "30 PHs in the DB PH table (staff.ph_categories) = dropdown list",
+   "ok": true,
+   "detail": "(30, ['Abinayaa', 'Akalika', 'Akanila', 'Arudchelvi', 'Dilakshiga', 'Dilani', 'Illakkiya', 'Jasmini', 'Jathisha', 'Jubista', 'mothajini', 'Nithushana', 'paulr', 'prasath', 'preethi', 'Ramsika', 'Renuha', 'Saranya', 'Sarbavi', 'Shanthini', 'shimee', 'thanusha', 'Tharshana', 'Tharsiga(nelli)', 'Tharsika(jaffna)', 'Theepana', 'Thojika', 'thuwaraga', 'utharsika', 'Vaishnavi'])"
+  },
+  {
+   "check": "every Sheet PH name resolves to one of the 30 DB PHs",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "ph_map.json == Sheet mapping re-derived from raw evidence",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no blank PH / blank or malformed eBay ID in the mapping",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "order_management_copy PH tables identical to ledsone staff tables",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "All PHs and Unassigned are disjoint and together = every eBay ID in the report",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "PH options = All PHs + 30 exact DB PH names + Unassigned",
+   "ok": true,
+   "detail": "[['', 'All PHs'], ['Abinayaa', 'Abinayaa'], ['Akalika', 'Akalika'], ['Akanila', 'Akanila']]"
+  },
+  {
+   "check": "default PH = All PHs",
+   "ok": true,
+   "detail": "Showing 1–50 of 3,170 eBay IDs (filtered from 14,912)"
+  },
+  {
+   "check": "PH 'All PHs': 3,170 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Abinayaa': 100 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Akalika': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Akanila': 24 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Arudchelvi': 151 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Dilakshiga': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Dilani': 250 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Illakkiya': 267 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Jasmini': 224 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Jathisha': 42 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Jubista': 60 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'mothajini': 66 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Nithushana': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'paulr': 236 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'prasath': 180 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'preethi': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Ramsika': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Renuha': 92 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Saranya': 76 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Sarbavi': 42 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Shanthini': 56 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'shimee': 367 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'thanusha': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Tharshana': 54 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Tharsiga(nelli)': 90 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Tharsika(jaffna)': 160 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Theepana': 76 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Thojika': 0 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'thuwaraga': 277 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'utharsika': 184 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Vaishnavi': 96 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH 'Unassigned': 11,742 expected IDs == shown; rows, header totals and KPIs reconcile",
+   "ok": true,
+   "detail": "{}"
+  },
+  {
+   "check": "PH x Account / Segment / Search combinations (18 cases) return exactly the expected IDs; another PH's ID is not found under 'shimee'; a 2-PH ID is found under both",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "no JS errors / console errors",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "Σ per-PH ID counts (3,170) = All PHs (3,170) + extra listings for IDs with 2+ PHs",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "per_ph": [
+  {
+   "ph": "All PHs",
+   "expected": 3170,
+   "shown": 3170,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Abinayaa",
+   "expected": 100,
+   "shown": 100,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Akalika",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Akanila",
+   "expected": 24,
+   "shown": 24,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Arudchelvi",
+   "expected": 151,
+   "shown": 151,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Dilakshiga",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Dilani",
+   "expected": 250,
+   "shown": 250,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Illakkiya",
+   "expected": 267,
+   "shown": 267,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Jasmini",
+   "expected": 224,
+   "shown": 224,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Jathisha",
+   "expected": 42,
+   "shown": 42,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Jubista",
+   "expected": 60,
+   "shown": 60,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "mothajini",
+   "expected": 66,
+   "shown": 66,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Nithushana",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "paulr",
+   "expected": 236,
+   "shown": 236,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "prasath",
+   "expected": 180,
+   "shown": 180,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "preethi",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Ramsika",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Renuha",
+   "expected": 92,
+   "shown": 92,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Saranya",
+   "expected": 76,
+   "shown": 76,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Sarbavi",
+   "expected": 42,
+   "shown": 42,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Shanthini",
+   "expected": 56,
+   "shown": 56,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "shimee",
+   "expected": 367,
+   "shown": 367,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "thanusha",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Tharshana",
+   "expected": 54,
+   "shown": 54,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Tharsiga(nelli)",
+   "expected": 90,
+   "shown": 90,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Tharsika(jaffna)",
+   "expected": 160,
+   "shown": 160,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Theepana",
+   "expected": 76,
+   "shown": 76,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Thojika",
+   "expected": 0,
+   "shown": 0,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "thuwaraga",
+   "expected": 277,
+   "shown": 277,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "utharsika",
+   "expected": 184,
+   "shown": 184,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Vaishnavi",
+   "expected": 96,
+   "shown": 96,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  },
+  {
+   "ph": "Unassigned",
+   "expected": 11742,
+   "shown": 11742,
+   "missing": [],
+   "unexpected": [],
+   "duplicates": [],
+   "cross_ph": [],
+   "row_errors": [],
+   "kpi_mismatch": [],
+   "header_mismatch": [],
+   "ok": true
+  }
+ ]
+}

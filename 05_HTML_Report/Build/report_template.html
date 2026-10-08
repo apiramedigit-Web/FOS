@@ -37,6 +37,7 @@ thead th{position:sticky;top:0;z-index:2;font-size:10.5px;font-weight:700;letter
 tbody tr[data-id]:hover td{background:#fafbfc}
 tbody tr[data-id] td:first-child{box-shadow:inset 3px 0 0 var(--bar,#cbd2da)}
 tr.sA{--bar:#22a55a}tr.sBad{--bar:#e5534b}tr.sU{--bar:#f08c2e}tr.sN{--bar:#cbd2da}
+.ph{display:block;margin-top:3px;font-size:10.5px;color:var(--muted);white-space:normal;max-width:170px}
 .eid{font-family:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;font-size:12px;border-bottom:1px dotted #8a94a3;color:var(--text)}
 tr.grp td{background:var(--accent-soft);color:var(--accent);text-align:left;font-weight:700;font-size:12px;letter-spacing:.02em;padding:9px 12px;border-bottom:1px solid #d9e3f2}
 tr.grp .tot{font-weight:500;color:var(--muted);margin-left:14px}
@@ -66,6 +67,62 @@ td.seg{text-align:left;white-space:normal;min-width:180px}
 .pager button:disabled{opacity:.4;cursor:default}
 .pager select{font:inherit;padding:5px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;margin-left:8px}
 .foot{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.6}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin:0 0 14px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:none;border:0;border-bottom:3px solid transparent;padding:8px 14px;cursor:pointer;margin-bottom:-1px}
+.tabs button.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tabs button:hover:not(.on){color:var(--text)}
+.filters input.pq{min-width:200px;padding-right:10px}
+.btn{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;align-self:flex-end}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{border-color:var(--accent)}
+.note{font-size:12px;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:-4px 0 12px;line-height:1.55}
+/* Price & SKU Sales Analysis: same table styling as Final Output Sales (global table/th/td/thead rules above);
+   only the frozen eBay ID column, the ID-group separator and column widths are specific to this table */
+#pt{min-width:980px}
+#pWrap{border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 3px rgba(16,24,40,.06)}
+#pt thead th{background:linear-gradient(#f7f9fc,#eef2f7);color:var(--head);border-bottom:2px solid #d6dde7}
+#pt thead th:first-child{position:sticky;left:0;z-index:4;text-align:center;box-shadow:inset -1px 0 0 #d6dde7;width:180px;min-width:180px;max-width:180px}
+/* frozen columns: eBay ID (0-180px) and SKU (from 180px) stay visible when scrolling sideways */
+#pt thead th:nth-child(2){position:sticky;left:180px;z-index:4;box-shadow:inset -2px 0 0 #d6dde7}
+#pt td.psku{position:sticky;left:180px;z-index:1;box-shadow:inset -2px 0 0 #d6dde7}
+/* eBay ID: one merged box per ID group, ID centred, frozen on the left */
+#pt td.idbox{position:sticky;left:0;z-index:2;text-align:center;vertical-align:middle;width:180px;min-width:180px;max-width:180px;
+  border-right:1px solid #d6dde7;border-bottom:1px solid #d6dde7}
+#pt td.idbox .eid{display:block;font-size:12.5px;font-weight:600;border-bottom:0;color:var(--accent);letter-spacing:.02em}
+#pt td.idbox .acc{display:inline-block;margin-top:6px;padding:1px 8px;border-radius:10px;background:#e3eaf5;color:var(--head);font-size:10.5px}
+/* each eBay ID group in its own colour band (4 soft tints in turn) so neighbouring IDs never look alike */
+#pt tbody tr.g0 td{background:#f4f8ff}#pt tbody tr.g0 td.idbox{background:#e3edfc;box-shadow:inset 4px 0 0 #3b6fb6}
+#pt tbody tr.g1 td{background:#f3faf5}#pt tbody tr.g1 td.idbox{background:#ddf1e3;box-shadow:inset 4px 0 0 #2f8a4f}
+#pt tbody tr.g2 td{background:#fff9f0}#pt tbody tr.g2 td.idbox{background:#fcebd2;box-shadow:inset 4px 0 0 #c27a12}
+#pt tbody tr.g3 td{background:#f8f5fd}#pt tbody tr.g3 td.idbox{background:#ebe3f8;box-shadow:inset 4px 0 0 #7a4fb0}
+#pt tbody tr:hover td:not(.idbox){filter:brightness(.97)}
+#pt tbody tr.first td{border-top:2px solid #d6dde7}
+#pt tbody tr[data-id] td:not(.idbox){box-shadow:none}
+#pt tbody tr[data-id] td.psku{box-shadow:inset -2px 0 0 #d6dde7}
+#pt td.num span:not(.cur):not(.was){font-weight:500}
+#pt td.cat{color:var(--head)}
+#pt th.sortable{cursor:pointer;user-select:none}
+#pt th.sortable:hover{color:var(--accent)}
+#pt th .arw{font-size:9px;margin-left:3px;color:var(--accent)}
+#pt td.t,#pt th.t{text-align:left}
+#pt td.num{text-align:right}
+#pt td.psku{white-space:normal;overflow-wrap:anywhere;min-width:200px;max-width:300px}
+#pt td.cat{white-space:normal;min-width:110px}
+#pt .cur{color:var(--muted);margin-right:1px}
+#pt .acc{display:block;margin-top:3px;font-size:10.5px;color:var(--muted)}
+#pt .was{display:block;font-size:10.5px;color:var(--muted)}
+#pt .zero{color:var(--na)}
+#pt .pst{display:block;margin-top:3px;font-size:10.5px;font-weight:600;white-space:nowrap}
+#pt .pst.inc{color:var(--pos)}#pt .pst.exc{color:var(--warn)}#pt .pst.unk{color:var(--na);font-weight:400;font-style:italic}
+/* September Comparison Table: Sep 2026 date range (calendar inputs) */
+.drange{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 4px 10px}
+.drange label{display:flex;flex-direction:column;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);gap:4px}
+.drange input[type=date]{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--text)}
+.drange input[type=date]:invalid,.drange input[type=date].bad{border-color:var(--neg);outline:1px solid var(--neg)}
+.drange .rmsg{font-size:12px;color:var(--muted);align-self:center}.drange .rmsg.err{color:var(--neg);font-weight:600}
+thead th .rh{display:block;font-size:9.5px;font-weight:600;letter-spacing:.02em;text-transform:none;color:var(--accent);margin-top:2px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.yes{color:var(--pos);font-weight:600}.no{color:var(--muted)}
 @media (max-width:700px){
   main{padding-left:16px;padding-right:16px}
   .filters select{min-width:0;width:100%}
@@ -77,13 +134,23 @@ td.seg{text-align:left;white-space:normal;min-width:180px}
 <main>
   <h1>eBay – Final OutPut Sales</h1>
   <div class="sub" id="sub"></div>
+  <nav class="tabs" role="tablist"><button type="button" class="on" id="tabBtnMain" data-tab="main" role="tab">Final Output Sales</button><button type="button" id="tabBtnPrice" data-tab="price" role="tab">Price &amp; SKU Sales Analysis</button></nav>
+  <section id="tabMain">
   <div class="filters" role="search">
+    <label>PH<select id="fPh"></select></label>
+    <label>Category<select id="fCat"></select></label>
     <label>Account<select id="fAcct"></select></label>
     <label>Segment<select id="fSeg"></select></label>
     <label>Search eBay ID / SKU<span class="qwrap"><input type="search" id="fQ" placeholder="Type an eBay ID or SKU…" autocomplete="off"><button type="button" id="fQx" title="Clear search">&times;</button></span></label>
+    <button type="button" class="btn primary" id="fDl">Download Excel</button>
   </div>
   <div class="card">
     <div class="card-head"><h2>September Comparison Table</h2><span class="showing" id="count"></span></div>
+    <div class="drange" id="dRange">
+      <label>Date From<input type="date" id="sdFrom" min="2026-09-01" value="2026-09-01" required></label>
+      <label>Date To<input type="date" id="sdTo" min="2026-09-01" required></label>
+      <span class="rmsg" id="rMsg"></span>
+    </div>
     <div class="tbl-wrap" id="wrap"><table id="t"></table></div>
     <div class="pager">
       <span class="nav"><button id="pgFirst" type="button">&laquo; First</button><button id="pgPrev" type="button">&lsaquo; Prev</button>
@@ -92,6 +159,35 @@ td.seg{text-align:left;white-space:normal;min-width:180px}
     </div>
   </div>
   <div class="foot" id="foot"></div>
+  </section>
+  <section id="tabPrice" hidden>
+  <div class="filters" role="search">
+    <label>PH<select id="pPh"></select></label>
+    <label>Category<select id="pCat"></select></label>
+    <label>Price snapshot From<select id="pFrom"></select></label>
+    <label>Price snapshot To<select id="pTo"></select></label>
+    <label>Search eBay ID<input type="search" class="pq" id="pId" placeholder="eBay ID…" autocomplete="off"></label>
+    <label>Search SKU<input type="search" class="pq" id="pSku" placeholder="SKU…" autocomplete="off"></label>
+    <button type="button" class="btn primary" id="pDl">Download Excel</button>
+    <button type="button" class="btn" id="pClr">Clear Filters</button>
+  </div>
+  <div class="note" id="pNote"></div>
+  <div class="card">
+    <div class="card-head"><h2>Price &amp; SKU Sales Analysis</h2><span class="showing" id="pCount"></span></div>
+    <div class="drange" id="pRange">
+      <label>Date From<input type="date" id="psFrom" min="2026-09-01" value="2026-09-01" required></label>
+      <label>Date To<input type="date" id="psTo" min="2026-09-01" required></label>
+      <span class="rmsg" id="psMsg"></span>
+    </div>
+    <div class="tbl-wrap" id="pWrap"><table id="pt"></table></div>
+    <div class="pager">
+      <span class="nav"><button id="ppFirst" type="button">&laquo; First</button><button id="ppPrev" type="button">&lsaquo; Prev</button>
+        <span id="ppInfo"></span><button id="ppNext" type="button">Next &rsaquo;</button><button id="ppLast" type="button">Last &raquo;</button></span>
+      <span>Rows per page<select id="ppSize"><option>50</option><option selected>100</option><option>200</option><option>500</option></select></span>
+    </div>
+  </div>
+  <div class="foot" id="pFoot"></div>
+  </section>
 </main>
 <script>
 const DATA = /*__DATA__*/null;
@@ -99,16 +195,23 @@ const DATA = /*__DATA__*/null;
 "use strict";
 const ACCTS=["Sunsone","Ledsone","Electricalsone","Huttenlampen","ledsone uk de","ledsone de"];
 const COLS=["eBay ID","SKU","LY Sales","TY Sales","YoY %","LY Ad Sales","TY Ad Sales","LY Views","TY Views","LY Orders","TY Orders",
-  "LY Conversion %","TY Conversion %","LY Price","TY Price","Ad Impressions","Ad Clicks","Ad Spend","Ad Sales","ROAS/ACOS","Segment"];
-const KEYS=["id","sku","lys","tys","yoy","LYAdSales","TYAdSales","lyv","tyv","lyo","tyo","lyc","tyc","lyp","typ","AdImpressions","AdClicks","AdSpend","AdSales","ra","seg"];
+  "LY Conversion %","TY Conversion %","Ad Impressions","Ad Clicks","Ad Spend","Ad Sales","ROAS/ACOS","Segment"];
+const KEYS=["id","sku","lys","tys","yoy","LYAdSales","TYAdSales","lyv","tyv","lyo","tyo","lyc","tyc","AdImpressions","AdClicks","AdSpend","AdSales","ra","seg"];
+// LY / TY Price moved to the "Price & SKU Sales Analysis" tab as Last Year Price / This Year Price (per SKU)
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const P=a=>({s:a[0],o:a[1],u:a[2],pxq:a[3],v:a[4],im:a[5]});
-const ROWS=DATA.rows.map(a=>({acct:a[0],mp:a[1],id:a[2],skus:a[3],LY:P(a[4]),TY:P(a[5]),ads:a[6],seg:a[7],lsku:a[8]||[],created:a[9]||null}));
+const ROWS=DATA.rows.map((a,i)=>({i,acct:a[0],mp:a[1],id:a[2],skus:a[3],LY:P(a[4]),TY:P(a[5]),ads:a[6],seg:a[7],lsku:a[8]||[],created:a[9]||null,ph:a[10]||[]}));
+const NOPH="__none__";
 // listing created after Sep 2025 and no LY order/traffic/ad row at all -> LY gap cells read "Not live in Sep 2025"
 const LY_END="2025-09-30";
 for(const r of ROWS){r.nl=!!(r.created&&r.created>LY_END&&r.LY.s===0&&r.LY.o===0&&r.LY.v===null&&!(r.ads.S&&r.ads.S.LY)&&!(r.ads.A&&r.ads.A.LY));}
 const fmtD=d=>{const p=d.split("-");return +p[2]+" "+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1]-1]+" "+p[0];};
+// the latest order date can still be in progress in the source: its New / Hold orders are not Completed yet (never counted)
+const OPEN=DATA.days.end_open||{},OPEN_N=Object.values(OPEN).reduce((a,b)=>a+b,0),END_SHORT=fmtD(DATA.days.end_date).replace(/ \d{4}$/,"");
+const openTxt=()=>OPEN_N?" · "+fmtD(DATA.days.end_date)+" incomplete in source: "+OPEN_N.toLocaleString("en-GB")+" eBay orders of that day not Completed yet ("+Object.entries(OPEN).map(([k,v])=>v+" "+k).join(", ")+"), not counted":"";
+const srcTxt=()=>"Latest data in the source: Completed eBay orders to "+fmtD(DATA.days.end_date)+"; traffic (Views) to "+fmtD(DATA.days.traffic_end)+"; current eBay listing prices synced "+esc(DATA.price.listing_synced_at.slice(0,16))+"; ad columns and Segment: full September (unchanged). "+
+  (OPEN_N?fmtD(DATA.days.end_date)+" is still incomplete in the source: "+OPEN_N.toLocaleString("en-GB")+" eBay orders dated that day are not Completed yet ("+Object.entries(OPEN).map(([k,v])=>v+" "+k).join(", ")+") and are not counted, so its figures will grow as they complete. ":"");
 const NL=r=>'<span class="na" title="Listing created '+fmtD(r.created)+' (after Sep 2025); no LY data exists">Not live in Sep 2025</span>';
 const MPS=[...new Set(ROWS.map(r=>r.mp))].sort((a,b)=>(a==="UK"?-1:b==="UK"?1:a.localeCompare(b)));
 
@@ -118,7 +221,7 @@ const NA='<span class="na">N/A</span>',ND='<span class="na">No data</span>',NADV
 const m2=v=>nf2.format(v),i0=v=>nf0.format(v);
 const yoyV=(ly,ty)=>ly===0?null:(ty-ly)/ly*100;
 function yoyHtml(ly,ty){const v=yoyV(ly,ty);if(v===null)return NA;return '<span class="'+(v>0?"pos":v<0?"neg":"")+'">'+(v>0?"+":"")+nf2.format(v)+"%</span>";}
-const views=(p,lbl)=>p.v===null?ND:'<span title="'+lbl+" Impressions: "+(p.im===null?"no data":i0(p.im))+(p.im?" · CTR "+nf2.format(p.v/p.im*100)+"%":"")+'">'+i0(p.v)+"</span>";
+const views=(p,lbl)=>p.v===null?ND:p.imNA?'<span title="'+lbl+' Views for the selected Sep days (impressions are not split by day)">'+i0(p.v)+"</span>":'<span title="'+lbl+" Impressions: "+(p.im===null?"no data":i0(p.im))+(p.im?" · CTR "+nf2.format(p.v/p.im*100)+"%":"")+'">'+i0(p.v)+"</span>";
 const convV=p=>p.v===null||p.v===0?null:p.o/p.v*100;
 const conv=p=>p.v===null?ND:p.v===0?NA:nf2.format(p.o/p.v*100)+"%";
 const price=p=>p.u===0?NA:m2(p.pxq/p.u);
@@ -141,12 +244,12 @@ function skuCell(r){
   return '<span class="na">Not available in source data</span>';
 }
 function row(r){
-  const c=['<span class="eid">'+esc(r.id)+"</span>",skuCell(r),m2(r.LY.s),m2(r.TY.s),yoyHtml(r.LY.s,r.TY.s),
+  const c=['<span class="eid">'+esc(r.id)+'</span><span class="ph">'+(r.ph.length?"PH: "+esc(r.ph.join(", ")):"PH: Unassigned")+"</span>",skuCell(r),m2(r.LY.s),m2(r.TY.s),yoyHtml(r.LY.s,r.TY.s),
     r.nl?NL(r):ad(r,"LY",a=>m2(a[3])),ad(r,"TY",a=>m2(a[3])),r.nl?NL(r):views(r.LY,"LY"),views(r.TY,"TY"),i0(r.LY.o),i0(r.TY.o),
-    r.nl?NL(r):conv(r.LY),conv(r.TY),price(r.LY),price(r.TY),
+    r.nl?NL(r):conv(r.LY),conv(r.TY),
     ad(r,"TY",a=>i0(a[0])),ad(r,"TY",a=>i0(a[1])),ad(r,"TY",a=>m2(a[2])),ad(r,"TY",a=>m2(a[3])),ad(r,"TY",ra),segPills(r.seg)];
-  return '<tr class="'+barCls(r.seg)+'" data-id="'+esc(r.id)+'" data-acct="'+esc(r.acct)+'" data-mp="'+esc(r.mp)+'">'+
-    c.map((v,i)=>'<td data-k="'+KEYS[i]+'" class="'+(i===0?"t":i===1?"t sku":i===20?"t seg":"")+'">'+v+"</td>").join("")+"</tr>";
+  return '<tr class="'+barCls(r.seg)+'" data-id="'+esc(r.id)+'" data-acct="'+esc(r.acct)+'" data-mp="'+esc(r.mp)+'" data-ph="'+esc(r.ph.join("|"))+'">'+
+    c.map((v,i)=>'<td data-k="'+KEYS[i]+'" class="'+(i===0?"t":i===1?"t sku":KEYS[i]==="seg"?"t seg":"")+'">'+v+"</td>").join("")+"</tr>";
 }
 function grpRow(k,rs,cont){
   let ly=0,ty=0;for(const r of rs){ly+=r.LY.s;ty+=r.TY.s;}
@@ -156,24 +259,31 @@ function grpRow(k,rs,cont){
 
 const act=r=>[r.TY.s,r.LY.s,(r.TY.v||0)+(r.LY.v||0)];
 function current(){
-  const fa=$("fAcct").value,fs=$("fSeg").value,q=$("fQ").value.trim().toLowerCase();
+  const fp=$("fPh").value,fa=$("fAcct").value,fs=$("fSeg").value,q=$("fQ").value.trim().toLowerCase();
+  // PH: "" = All PHs (IDs owned by any of the 30 PHs); an ID with two PHs appears under both
+  const phOk=r=>fp===""?r.ph.length>0:fp===NOPH?r.ph.length===0:r.ph.includes(fp);
   // search: partial, case-insensitive match on eBay ID, order SKUs and listing SKUs
   const hit=r=>!q||r.id.toLowerCase().includes(q)||r.skus.some(x=>x.toLowerCase().includes(q))||r.lsku.some(x=>x.toLowerCase().includes(q));
-  const rs=ROWS.filter(r=>(!fa||r.acct===fa)&&(!fs||r.seg.includes(fs))&&hit(r));
+  const fcat=$("fCat").value,catR=r=>{const c=DATA.rows[r.i][12]||"";return fcat===""||(fcat==="__nocat__"?!c:c===fcat);};
+  const rs=ROWS.filter(r=>phOk(r)&&catR(r)&&(!fa||r.acct===fa)&&(!fs||r.seg.includes(fs))&&hit(r));
   // default: workbook account order, marketplace, then most activity first
   return rs.sort((a,b)=>{const d=ACCTS.indexOf(a.acct)-ACCTS.indexOf(b.acct)||MPS.indexOf(a.mp)-MPS.indexOf(b.mp);if(d)return d;
     const x=act(a),y=act(b);return y[0]-x[0]||y[1]-x[1]||y[2]-x[2]||(a.id<b.id?-1:1);});
 }
 
 const SEGS=[...new Set(ROWS.flatMap(r=>r.seg))].sort();
+$("fPh").innerHTML='<option value="">All PHs</option>'+DATA.phs.map(p=>'<option value="'+esc(p)+'">'+esc(p)+"</option>").join("")+'<option value="'+NOPH+'">Unassigned (no PH)</option>';
 $("fAcct").innerHTML='<option value="">All accounts</option>'+ACCTS.map(a=>"<option>"+esc(a)+"</option>").join("");
 $("fSeg").innerHTML='<option value="">All segments</option>'+SEGS.map(s=>"<option>"+esc(s)+"</option>").join("");
 let page=0;
+// columns that follow the date range; rangeLbl(key) = their sub-label, null while the full month 1–30 Sep is shown
+const RANGED=new Set(["lys","tys","yoy","lyv","tyv","lyo","tyo","lyc","tyc"]);
+let rangeLbl=null;
 function render(){
   const size=+$("pgSize").value,rs=current(),groups=new Map();
   for(const r of rs){const k=r.acct+" · "+r.mp;if(!groups.has(k))groups.set(k,[]);groups.get(k).push(r);}
   const pages=Math.max(1,Math.ceil(rs.length/size));if(page>=pages)page=pages-1;
-  const h=["<thead><tr>"+COLS.map((c,i)=>'<th class="'+(i<2||i===20?"t":"")+'">'+c+"</th>").join("")+"</tr></thead><tbody>"];
+  const h=["<thead><tr>"+COLS.map((c,i)=>'<th class="'+(i<2||KEYS[i]==="seg"?"t":"")+'">'+c+(rangeLbl&&RANGED.has(KEYS[i])?'<span class="rh">'+rangeLbl(KEYS[i])+"</span>":"")+"</th>").join("")+"</tr></thead><tbody>"];
   let g=null;
   for(const r of rs.slice(page*size,(page+1)*size)){
     const k=r.acct+" · "+r.mp;if(k!==g){const all=groups.get(k);h.push(grpRow(k,all,all[0]!==r));g=k;}
@@ -187,17 +297,316 @@ function render(){
   $("pgFirst").disabled=$("pgPrev").disabled=page===0;$("pgNext").disabled=$("pgLast").disabled=page>=pages-1;
 }
 $("sub").textContent="September -Comparision · LY = 1–30 Sep 2025 · TY = 1–30 Sep 2026 · Generated "+DATA.generated_at;
-$("foot").innerHTML="Sales = Completed eBay orders in each marketplace's own currency. Order: workbook account order, then sales and views. "+
+$("foot").innerHTML="PH = Portfolio Holder: an eBay ID belongs to every PH that the PH Google Sheet (Master Sheet Ebay 4th Cycle) or the ledsone PH tables assign it to, so an ID with two PHs appears under both. All PHs = IDs owned by any of the 30 PHs (each ID once); Unassigned = IDs with no PH in either source. "+
+  "Sales = Completed eBay orders in each marketplace's own currency. Order: workbook account order, then sales and views. "+
+  "<b>Date From / Date To</b> (calendar from 1 Sep 2026 to "+fmtD(DATA.days.end_date)+", the latest Completed eBay order date in the source; default 1 Sep 2026 to that date — select 1–30 Sep for the September month only): TY Sales, TY Orders, TY Views and TY Conversion % use only the selected days of 2026, and LY Sales, LY Orders, LY Views and LY Conversion % use the <b>same calendar days of 2025</b> (e.g. 1–15 Sep 2026 vs 1–15 Sep 2025; 16 Sep–"+END_SHORT+" 2026 vs 16 Sep–"+END_SHORT+" 2025); YoY % compares those two. "+
+  "Traffic (Views) is in the source up to "+fmtD(DATA.days.traffic_end)+"; later selected days have no Views yet (a range starting after that date shows TY Views as <i>No data</i>, not 0). "+
+  srcTxt()+
+  "Day figures come from the same Completed orders (order_date) and traffic rows (date) as the monthly figures, and 1–30 Sep equals the full-month table exactly. Conversion % = Orders ÷ Views × 100 (Views 0 → N/A). "+
+  "Ad Impressions, Ad Clicks, Ad Spend, Ad Sales, ROAS/ACOS, LY/TY Ad Sales and Segment always stay full September (monthly figures); for a partial range Views show no Impressions/CTR (impressions are not split by day). From must be on or before To. "+
   "Ad Impressions, Ad Clicks, Ad Spend, Ad Sales and ROAS/ACOS = TY September (shown as ROAS / ACOS %). <span class=\"s\" style=\"display:inline\"><b class=\"std\">Std</b></span> Standard (Cost Per Sale) and <span class=\"s\" style=\"display:inline\"><b class=\"adv\">Adv</b></span> Advanced (Cost Per Click) are listed separately and never summed; – = that ad type not advertised. "+
   "<i>N/A</i> = can't be calculated (divisor 0). <i>No data</i> = no traffic row. <i>Not advertised</i> = no ad row. <i>Not live in Sep 2025</i> = listing created after Sep 2025 (listings.ebay_listings) with no LY order, traffic or ad row (hover for the date). Hover over Views to see Impressions and CTR. "+
   "SKU marked <span class=\"src\">from listing</span> = no Completed order in either September, so the SKU is taken from the listing. "+
   "Row colour bar: green = A, red = C or D, amber = Undetermined: B or D, grey = no segment rule met. Segment rules follow Ebay.xlsx; “recent sales improving” (B) and “TY Sales ≈ 0” (D) are not defined in the workbook.";
 const go=p=>{page=p;render();$("wrap").scrollTop=0;};
-$("fAcct").onchange=()=>go(0);$("fSeg").onchange=()=>go(0);
+$("fPh").onchange=()=>go(0);$("fCat").onchange=()=>go(0);$("fAcct").onchange=()=>go(0);$("fSeg").onchange=()=>go(0);
 let qt;$("fQ").addEventListener("input",()=>{$("fQx").style.display=$("fQ").value?"block":"none";clearTimeout(qt);qt=setTimeout(()=>go(0),200);});
 $("fQx").onclick=()=>{$("fQ").value="";$("fQx").style.display="none";go(0);$("fQ").focus();};$("pgSize").onchange=()=>go(0);
 $("pgFirst").onclick=()=>go(0);$("pgPrev").onclick=()=>go(page-1);$("pgNext").onclick=()=>go(page+1);$("pgLast").onclick=()=>go(1e9);
 render();
+
+// ===================== Price & SKU Sales Analysis =====================
+// One row per existing eBay ID x SKU (no derived rows). LY/TY Price = Σ(item price × qty) / Σ units of that SKU's
+// Completed orders (same formula as the former ID-level LY/TY Price). BOS / BLOS values come from dated snapshots.
+const PR=DATA.price,PD=PR.dates;
+// column names exactly as the business requirement; "sku with Sales" = Sep 2026 Completed order count (not Yes/No)
+const PCOLS=["eBay ID","SKU","Category","Last Year Price","This Year Price","Current eBay Listing Price","Bos Balance Price (Healthy)","Ebay Price(Calculate with bos price to our ebay price)","sku with Sales"];
+const PKEYS=["id","sku","cat","lyp","typ","lp","bos","eb","tyo"];
+const PNUM=new Set(["lyp","typ","lp","bos","eb","tyo"]);
+// marketplace currency for LY/TY Price; BOS Healthy is GBP; eBay Price uses the BLOS channel's currency
+const MCUR={UK:"£",Germany:"€",France:"€",Italy:"€",Spain:"€",Ireland:"€",US:"$",Canada:"C$"},CCUR={GBP:"£",EUR:"€"};
+const PROWS=[];
+ROWS.forEach((r,i)=>{const e=DATA.rows[i][11]||[];
+  if(!e.length)PROWS.push({r,i,sku:"",rule:-1,s:null,ch:null,lp:null});
+  for(const x of e)PROWS.push({r,i,sku:x[0],rule:x[1],s:x[2],ch:x[3],lp:x[4]||null,oct:x[5]||0});});
+// base order = the main table's default order (account, marketplace, activity), SKUs in listed order
+const RANK=new Map();ROWS.slice().sort((a,b)=>{const d=ACCTS.indexOf(a.acct)-ACCTS.indexOf(b.acct)||MPS.indexOf(a.mp)-MPS.indexOf(b.mp);if(d)return d;
+  const x=act(a),y=act(b);return y[0]-x[0]||y[1]-x[1]||y[2]-x[2]||(a.id<b.id?-1:1);}).forEach((r,i)=>RANK.set(r,i));
+PROWS.forEach((p,i)=>p.o=RANK.get(p.r)*1e5+i);
+const bosKey=p=>p.rule===0?p.sku:p.rule===1?p.sku.split("+")[0]:null;
+const bosV=(p,d)=>{const k=bosKey(p);if(k===null||!d)return null;const v=PR.snaps[d].bos[k];return v===undefined?null:v;};
+const ebV=(p,d)=>{if(!p.ch||!p.sku||!d)return null;const c=PR.snaps[d].eb[p.ch],v=c&&c[p.sku];return v===undefined?null:v;};
+// BLOS postage status of the displayed Recommended Price: "I" included, "N" not included, null = not in source data
+const ebPost=(p,d)=>{if(!p.ch||!p.sku||!d)return null;const c=(PR.snaps[d].ebp||{})[p.ch],v=c&&c[p.sku];return v===undefined?null:v;};
+const POST={I:"Postage Included",N:"Postage Not Included"};
+// BLOS channel currency = the BLOS site the channel belongs to (Site UK: GBP, Site DE: EUR), as the BLOS screen shows it
+const DE_CH=new Set(["ledsonede","huettenlampen","electricalsone-de"]);
+const ebCur=(p,d)=>p.ch?(DE_CH.has(p.ch)?"EUR":"GBP"):"";
+// price is computed in the build in exact decimals (half-up, 2 dp); null = no units on this eBay ID x SKU
+// Price tab sales date range: prng = [from, to] day index (1–30 = Sep, 31.. = Oct; LY = the same calendar days of 2025).
+// 1–30 Sep uses the extracted monthly values; any other range sums this eBay ID x SKU's own day figures (PR.days).
+let prng=[1,30];
+let prTxt=()=>"1–30 Sep 2026 vs 1–30 Sep 2025";const PRNG_K={};   // set with the calendar below
+const pFull=()=>prng[0]===1&&prng[1]===30;
+function skuDays(p,per){const d=PR.days[p.r.id+"|"+p.r.mp],x=d&&d[p.sku];let q=0,u=0,o=0;
+  if(x)for(const [dd,pq,uu,oo] of x[per])if(dd>=prng[0]&&dd<=prng[1]){q+=pq;u+=uu;o+=oo;}return [q,u,o];}
+// Σ(item price × qty) ÷ Σ qty, half-up to 2 dp in integer arithmetic (price x qty is exact to 4 dp) - same result as build.price2
+const halfUp=(q,u)=>{const n=Math.round(q*1e4);return Math.floor((2*n+100*u)/(200*u))/100;};
+const skuPrice=(p,per)=>{if(pFull())return p.s?p.s[per*2]:null;const [q,u]=skuDays(p,per);return u?halfUp(q,u):null;};
+const skuUnits=(p,per)=>pFull()?(p.s?p.s[1+per*2]:0):skuDays(p,per)[1];
+// Sep Orders = distinct Completed orders of this eBay ID x SKU (per=0: Sep 2025, 1: Sep 2026); 0 = none; null = no SKU
+const sepOrders=(p,per)=>!p.sku?null:pFull()?(p.s?p.s[4+per]:0):skuDays(p,per)[2];
+const catOf=p=>DATA.rows[p.i][12]||"";
+// current eBay listing price of this exact eBay ID x SKU (today's price from the listing; NOT a September price)
+const LPCUR={GBP:"£",EUR:"€",USD:"$",CAD:"C$"};
+const lpV=p=>p.lp?+p.lp[0]:null;
+const PVAL={id:p=>p.r.id,sku:p=>p.sku||null,lyp:p=>skuPrice(p,0),typ:p=>skuPrice(p,1),lp:lpV,bos:p=>{const v=bosV(p,$("pTo").value);return v===null?null:+v;},
+  eb:p=>{const v=ebV(p,$("pTo").value);return v===null?null:+v;},cat:p=>catOf(p)||null,tyo:p=>sepOrders(p,1)};
+let pSort=null,pDir=1,pPage=0,pDirty=true;
+function pCurrent(){
+  const fp=$("pPh").value,qi=$("pId").value.trim().toLowerCase(),qs=$("pSku").value.trim().toLowerCase();
+  const phOk=r=>fp===""?r.ph.length>0:fp===NOPH?r.ph.length===0:r.ph.includes(fp);
+  const fc=$("pCat").value,catOk=p=>fc===""||(fc===NOCAT?!catOf(p):catOf(p)===fc);
+  const rs=PROWS.filter(p=>phOk(p.r)&&catOk(p)&&(!qi||p.r.id.toLowerCase().includes(qi))&&(!qs||p.sku.toLowerCase().includes(qs)));
+  // default order: eBay IDs with a BLOS eBay Price first, and inside each ID the SKUs with a BLOS price first
+  // (ID groups stay together); then the usual account / activity order
+  if(!pSort){const dT=$("pTo").value,has=new Map();for(const p of rs)if(ebV(p,dT)!==null)has.set(p.r,1);
+    const k=p=>[has.has(p.r)?0:1,RANK.get(p.r),ebV(p,dT)!==null?0:1,p.o];
+    return rs.map(p=>[k(p),p]).sort((x,y)=>{for(let i=0;i<4;i++){const d=x[0][i]-y[0][i];if(d)return d;}return 0;}).map(z=>z[1]);}
+  const f=PVAL[pSort];
+  return rs.map(p=>[f(p),p]).sort((a,b)=>{const x=a[0],y=b[0];if(x===null||y===null)return x===y?a[1].o-b[1].o:x===null?1:-1;
+    return (x<y?-1:x>y?1:0)*pDir||a[1].o-b[1].o;}).map(z=>z[1]);
+}
+const f2=v=>v===null?"":m2(v);
+function cmpLine(nv,ov,dFrom){
+  if($("pFrom").value===$("pTo").value)return "";
+  if(ov===null)return '<span class="was">'+fmtD(dFrom)+": Not Available</span>";
+  if(nv===null)return '<span class="was">was '+m2(+ov)+" on "+fmtD(dFrom)+"</span>";
+  const d=+nv-+ov;return '<span class="was">'+(d===0?"unchanged since ":"was "+m2(+ov)+' <span class="'+(d>0?"pos":"neg")+'">('+(d>0?"+":"")+m2(d)+")</span> on ")+fmtD(dFrom)+"</span>";
+}
+const money=(v,c)=>v===null?"":'<span class="cur">'+c+"</span>"+m2(v);
+const ordCell=(n,st)=>n===null?"":'<span class="'+(n?"":"zero")+'" title="'+esc(st)+'">'+i0(n)+"</span>";
+// span = number of this eBay ID's SKU rows on the current page: the ID is drawn once, centred in one merged box
+function pRow(p,showId,grp,span){
+  const dT=$("pTo").value,dF=$("pFrom").value,b=bosV(p,dT),e=ebV(p,dT),ly=skuPrice(p,0),ty=skuPrice(p,1),mc=MCUR[p.r.mp]||"",ec=CCUR[ebCur(p,dT)]||"";
+  const bk=bosKey(p);
+  const bt=p.rule===2?"Combo outside Lampshade / Wall plug: no BOS price":!p.sku?"":b===null?"No BOS Healthy price for "+bk:"BOS Healthy "+b+" for "+bk+(p.rule===1?" (first component of the combo)":"");
+  const et=!p.ch?"No BLOS channel for "+p.r.acct+" · "+p.r.mp:e===null?"No BLOS recommended_price for this SKU ("+p.ch+")":"BLOS recommended_price, channel "+p.ch+" ("+ebCur(p,dT)+")";
+  const lo=sepOrders(p,0)||0,to=sepOrders(p,1)||0;
+  const st=(lo||to?"Completed orders of this SKU on this eBay ID ("+prTxt()+"): orders LY "+i0(lo)+" / TY "+i0(to)+" · units LY "+i0(skuUnits(p,0))+" / TY "+i0(skuUnits(p,1)):"No Completed order for this SKU on this eBay ID in "+prTxt());
+  const c=[showId?'<span class="eid">'+esc(p.r.id)+'</span><span class="acc">'+esc(p.r.acct+" · "+p.r.mp)+"</span>":"",
+    p.sku?esc(p.sku)+(p.oct?'<span class="src" title="Sold only on the October days (1 Oct onwards, 2025 or 2026); no September order - its prices show when the date range includes October">Oct order</span>':""):'<span class="na">Not available in source data</span>',
+    esc(catOf(p)),
+    money(ly,mc),money(ty,mc),
+    p.lp?'<span title="Current eBay listing price (ledsone listings.ebay_listings, synced '+esc(PR.listing_synced_at.slice(0,16))+'). Today\'s price, not a September price">'+money(+p.lp[0],LPCUR[p.lp[1]]||p.lp[1]+" ")+"</span>":"",
+    (b===null?"":'<span class="cur">£</span>')+'<span title="'+esc(bt)+'">'+(b===null?"":m2(+b))+"</span>"+(p.rule===2||!p.sku?"":cmpLine(b,bosV(p,dF),dF)),
+    (e===null?"":'<span class="cur">'+ec+"</span>")+'<span title="'+esc(et)+'">'+(e===null?"":m2(+e))+"</span>"+
+      (e===null?"":'<span class="pst '+(ebPost(p,dT)==="I"?"inc":ebPost(p,dT)==="N"?"exc":"unk")+'" data-post="'+(ebPost(p,dT)||"")+'">'+(POST[ebPost(p,dT)]||"Postage status not available in source data")+"</span>")+
+      (p.ch&&p.sku?cmpLine(e,ebV(p,dF),dF):""),
+    ordCell(sepOrders(p,1),st)];
+  return '<tr class="'+(showId?"first ":"")+"g"+grp+'" data-id="'+esc(p.r.id)+'" data-acct="'+esc(p.r.acct)+'" data-mp="'+esc(p.r.mp)+'" data-sku="'+esc(p.sku)+'" data-rule="'+p.rule+'">'+
+    c.map((v,i)=>i===0?(showId?'<td data-k="id" class="idbox" rowspan="'+span+'">'+v+"</td>":""):
+      '<td data-k="'+PKEYS[i]+'" class="'+(i===1?"t psku":i===2?"t cat":"num")+'">'+v+"</td>").join("")+"</tr>";
+}
+const sameId=(a,b)=>a&&b&&a.r===b.r;
+function pRender(){
+  const size=+$("ppSize").value,rs=pCurrent(),pages=Math.max(1,Math.ceil(rs.length/size));if(pPage>=pages)pPage=pages-1;
+  const h=["<thead><tr>"+PCOLS.map((c,i)=>'<th class="sortable'+(PNUM.has(PKEYS[i])?" num":" t")+'" data-k="'+PKEYS[i]+'">'+esc(c)+(PRNG_K[PKEYS[i]]?'<span class="rh">'+PRNG_K[PKEYS[i]]()+"</span>":"")+(pSort===PKEYS[i]?'<span class="arw">'+(pDir>0?"▲":"▼")+"</span>":"")+"</th>").join("")+"</tr></thead><tbody>"];
+  const st=pPage*size;let g=-1;
+  const en=Math.min(rs.length,st+size);
+  for(let i=st;i<en;i++){const nw=i===st||!sameId(rs[i],rs[i-1]);let sp=1;if(nw){g=(g+1)%4;while(i+sp<en&&sameId(rs[i+sp],rs[i]))sp++;}h.push(pRow(rs[i],nw,g,sp));}
+  if(!rs.length)h.push('<tr><td class="t" colspan="'+PCOLS.length+'">No eBay ID or SKU matches the selected filters.</td></tr>');
+  $("pt").innerHTML=h.join("")+"</tbody>";
+  const nIds=new Set(rs.map(p=>p.r)).size;
+  $("pCount").innerHTML="Showing <b>"+(rs.length?i0(st+1):0)+"–"+i0(Math.min(rs.length,st+size))+"</b> of <b data-n=\""+rs.length+"\">"+i0(rs.length)+"</b> SKU rows · <b data-ids=\""+nIds+"\">"+i0(nIds)+"</b> eBay IDs";
+  $("ppInfo").textContent="Page "+(pPage+1)+" of "+pages;
+  $("ppFirst").disabled=$("ppPrev").disabled=pPage===0;$("ppNext").disabled=$("ppLast").disabled=pPage>=pages-1;
+  $("pt").querySelectorAll("th.sortable").forEach(th=>th.onclick=()=>{const k=th.dataset.k;if(pSort===k){if(pDir>0)pDir=-1;else{pSort=null;pDir=1;}}else{pSort=k;pDir=1;}pGo(0);});
+  pDirty=false;
+}
+const pGo=p=>{pPage=p;if($("tabPrice").hidden){pDirty=true;return;}pRender();$("pWrap").scrollTop=0;};
+function pNote(){
+  const dT=$("pTo").value,s=PR.snaps[dT];
+  $("pNote").innerHTML="Price snapshots stored: <b>"+PD.map(fmtD).join(", ")+"</b>. "+(PD.length<2?"Earlier dates: <b>Not Available</b>. BOS and BLOS give only the current price, so history starts with the first daily snapshot and is never back-filled. ":"")+
+    "Showing BOS / BLOS prices as of <b>"+fmtD(dT)+"</b>"+($("pFrom").value!==dT?", compared with <b>"+fmtD($("pFrom").value)+"</b>":"")+" (BOS feed published "+esc(s.bos_published_at.slice(0,16).replace("T"," "))+" UTC; fetched "+esc(s.fetched_at.replace("T"," "))+"). "+
+    "Price snapshot From / To = BOS / BLOS price dates. The sales Date From / Date To calendar (inside the table card) sets Last Year / This Year Price and the order count.";
+}
+$("pPh").innerHTML=$("fPh").innerHTML;
+const NOCAT="__nocat__",CATS=[...new Set(DATA.rows.map(a=>a[12]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+$("pCat").innerHTML='<option value="">All categories</option>'+CATS.map(c=>'<option value="'+esc(c)+'">'+esc(c)+"</option>").join("")+'<option value="'+NOCAT+'">No category (no PH)</option>';
+$("pCat").onchange=()=>pGo(0);
+$("fCat").innerHTML=$("pCat").innerHTML;
+$("pFrom").innerHTML=$("pTo").innerHTML=PD.map(d=>'<option value="'+d+'">'+fmtD(d)+"</option>").join("");
+$("pFrom").value=PD[0];$("pTo").value=PD[PD.length-1];
+$("pFrom").onchange=()=>{if($("pFrom").value>$("pTo").value)$("pTo").value=$("pFrom").value;pNote();pGo(0);};
+$("pTo").onchange=()=>{if($("pTo").value<$("pFrom").value)$("pFrom").value=$("pTo").value;pNote();pGo(0);};
+$("fPh").onchange=()=>{$("pPh").value=$("fPh").value;go(0);pGo(0);};
+$("pPh").onchange=()=>{$("fPh").value=$("pPh").value;go(0);pGo(0);};
+let pqt;for(const id of ["pId","pSku"])$(id).addEventListener("input",()=>{clearTimeout(pqt);pqt=setTimeout(()=>pGo(0),200);});
+$("ppSize").onchange=()=>pGo(0);
+$("ppFirst").onclick=()=>pGo(0);$("ppPrev").onclick=()=>pGo(pPage-1);$("ppNext").onclick=()=>pGo(pPage+1);$("ppLast").onclick=()=>pGo(1e9);
+$("pClr").onclick=()=>{$("psFrom").value=SEP_MIN;$("psTo").value=END;prng=[1,LAST];$("pDl").disabled=false;psMsg();$("pPh").value=$("fPh").value="";$("pCat").value="";$("pFrom").value=PD[0];$("pTo").value=PD[PD.length-1];$("pId").value=$("pSku").value="";pSort=null;pDir=1;pNote();go(0);pGo(0);};
+for(const b of document.querySelectorAll(".tabs button"))b.onclick=()=>{
+  const pr=b.dataset.tab==="price";$("tabMain").hidden=pr;$("tabPrice").hidden=!pr;
+  $("tabBtnMain").classList.toggle("on",!pr);$("tabBtnPrice").classList.toggle("on",pr);if(pr&&pDirty)pRender();};
+pNote();
+$("pFoot").innerHTML="One row per eBay ID × SKU exactly as listed on the dashboard (order SKUs, else listing SKUs); the eBay ID is shown on the first SKU row only. "+
+  "<b>Date From / Date To</b> (calendar, 1 Sep 2026 to "+fmtD(DATA.days.end_date)+", the latest Completed eBay order date; default the whole period, <b>October days included</b>): <b>This Year Price</b> = Σ(item price × qty) ÷ Σ qty of this eBay ID × SKU's Completed eBay orders on the selected days of 2026, <b>Last Year Price</b> = the same calendar days of 2025 (exact decimals, half-up to 2 dp; blank = no units sold on those days); 1–30 Sep gives exactly the September values. SKUs sold only on the October days are listed on their eBay ID with an <span class=\"src\">Oct order</span> tag. "+
+  srcTxt()+
+  "<b>Current eBay Listing Price</b> = today's price of this exact eBay ID × SKU on the eBay listing (ledsone listings.ebay_listings, synced daily; exact item ID + SKU + marketplace, rows flagged wrong SKU never used), in the listing's currency. It is NOT a September price: no source keeps eBay price history, so September prices are only the Last Year / This Year sold prices. Blank = SKU not on the live listing, listing ended, or the listing holds two different prices for the SKU. "+
+  "<b>Bos Balance Price (Healthy)</b> = net_healthy_gbp from the BOS Balance Price feed (cppc-sandbox-viewer /balanceprice). Single SKU → its own SKU. Combo (“+”) on an eBay ID in the PH Sheet's Lampshade or Wall plug category → the Healthy price of the FIRST component, shown on the combo row. Other combos → blank. Shown to 2 decimals; hover for the exact source value. "+
+  "<b>Ebay Price</b> = BLOS listing-channel-price RECOMMENDED PRICE for the exact SKU (the BLOS SKU Price screen; it equals the API recommended_price wherever the API has one and also covers combos BLOS can price), channel by seller account × marketplace: Ledsone UK → ledsone, Electricalsone UK → electricalsone, Electricalsone Germany → electricalsone-de, Huttenlampen → huettenlampen, ledsone de → ledsonede. BLOS has no Sunsone channel and no channel for Ledsone listings on the Germany site, so those stay blank; so do SKUs not listed in the channel and SKUs BLOS shows as “—”. "+
+  "<b>Category</b> = the PH Sheet category of the eBay ID (Master Sheet Ebay 4th Cycle); blank when the ID has no PH category. "+
+  "Under the eBay Price: <b>Postage Included</b> = BLOS's Recommended Price already contains the carrier charge (BLOS adds it when the price without postage is over the threshold; its RECOMMENDED PRICE is then above REC PRICE (EXC POSTAGE)); <b>Postage Not Included</b> = postage is charged separately on top. "+
+  "<b>sku with Sales</b> = 2026 order count for the selected dates: number of distinct Completed eBay orders of this eBay ID × SKU on those days (orders, not units: 1 order of 3 units = 1; 3 separate orders = 3; hover for LY/TY orders, units and sales). 0 = no Completed order; blank = no SKU in the source. "+
+  "Prices show the currency (£ GBP, € EUR, $ USD); BOS Healthy is GBP. Blank always means the source has no value, never zero.";
+
+// ---- Excel export of the filtered rows (minimal .xlsx writer, no external library) ----
+const xe=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+const crc32=b=>{let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;};
+function zip(files){
+  const enc=new TextEncoder(),parts=[],cen=[];let off=0;
+  const u16=v=>[v&255,(v>>>8)&255],u32=v=>[v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255];
+  for(const [name,txt] of files){
+    const nb=enc.encode(name),db=enc.encode(txt),c=crc32(db);
+    const h=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(c),...u32(db.length),...u32(db.length),...u16(nb.length),...u16(0)]);
+    parts.push(h,nb,db);
+    cen.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(c),...u32(db.length),...u32(db.length),...u16(nb.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off)]),nb);
+    off+=h.length+nb.length+db.length;
+  }
+  const cs=cen.reduce((a,b)=>a+b.length,0);
+  return new Blob([...parts,...cen,new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cs),...u32(off),...u16(0)])],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+}
+const colL=i=>(i>=26?String.fromCharCode(64+Math.floor(i/26)):"")+String.fromCharCode(65+i%26);
+function exportRows(){
+  const rs=pCurrent(),dT=$("pTo").value,out=[PCOLS];
+  out[0]=PCOLS.map((c,i)=>PRNG_K[PKEYS[i]]?c+" ("+PRNG_K[PKEYS[i]]()+")":c);
+  rs.forEach((p,i)=>{const b=bosV(p,dT),e=ebV(p,dT),ly=skuPrice(p,0),ty=skuPrice(p,1);
+    out.push([i===0||!sameId(p,rs[i-1])?p.r.id:null,p.sku||null,catOf(p)||null,ly===null?null:+ly.toFixed(4),ty===null?null:+ty.toFixed(4),lpV(p),b===null?null:+b,e===null?null:+e,sepOrders(p,1)]);});
+  return out;
+}
+// sheets = [[name, rows], ...]; rows[0] = header; null = empty cell (blank, never 0)
+function xlsxBook(sheets){
+  const NS='xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"',RNS='xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+  const sheetXml=rows=>{
+    const w=rows[0].map((_,c)=>Math.min(60,Math.max(...rows.map(r=>r[c]===null||r[c]===undefined?0:String(r[c]).length))+2));
+    const cell=(v,r,c)=>{const ref=colL(c)+(r+1);if(v===null||v===undefined)return "";
+      if(typeof v==="number")return '<c r="'+ref+'" s="2"><v>'+v+"</v></c>";
+      return '<c r="'+ref+'" t="inlineStr" s="'+(r===0?1:3)+'"><is><t xml:space="preserve">'+xe(v)+"</t></is></c>";};
+    return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet '+NS+'><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>'+
+      w.map((x,i)=>'<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+x+'" customWidth="1"/>').join("")+"</cols><sheetData>"+
+      rows.map((r,i)=>'<row r="'+(i+1)+'">'+r.map((v,c)=>cell(v,i,c)).join("")+"</row>").join("")+"</sheetData></worksheet>";};
+  const n=sheets.map((_,i)=>i+1);
+  return zip([
+    ["[Content_Types].xml",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'+n.map(k=>'<Override PartName="/xl/worksheets/sheet'+k+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>').join("")+'<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'],
+    ["_rels/.rels",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'],
+    ["xl/workbook.xml",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook '+NS+" "+RNS+"><sheets>"+sheets.map((s,i)=>'<sheet name="'+xe(s[0])+'" sheetId="'+(i+1)+'" r:id="rId'+(i+1)+'"/>').join("")+"</sheets></workbook>"],
+    ["xl/_rels/workbook.xml.rels",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+n.map(k=>'<Relationship Id="rId'+k+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+k+'.xml"/>').join("")+'<Relationship Id="rId'+(sheets.length+1)+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'],
+    ...sheets.map((s,i)=>["xl/worksheets/sheet"+(i+1)+".xml",sheetXml(s[1])]),
+    ["xl/styles.xml",'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet '+NS+'><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="4"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/><xf numFmtId="2" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/><xf numFmtId="49" fontId="0" fillId="0" borderId="0" xfId="0" applyNumberFormat="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>']]);
+}
+const xlsx=rows=>xlsxBook([["Price & SKU Sales Analysis",rows]]);
+function saveBlob(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},2000);}
+$("pDl").onclick=()=>{
+  const ph=$("pPh").value,name="Price_SKU_Sales_"+(ph===""?"All_PHs":ph===NOPH?"Unassigned":ph.replace(/[^A-Za-z0-9_-]+/g,"_"))+"_"+$("pTo").value+".xlsx";
+  saveBlob(xlsx(exportRows()),name);
+};
+
+// ===================== Final Output Sales: Sep date range + download =====================
+// ---- Sep date range (September Comparison Table): Sales / Orders / Views / Conversion for the selected days ----
+// TY = the selected days of Sep 2026; LY = the SAME calendar days of Sep 2025 (03_SQL/extract_daily.py splits the monthly
+// extract by order_date / traffic date and proves the days add up to it). Ad columns and Segment stay full September.
+// 1–30 Sep = the full-month table exactly as extracted (the extracted monthly values are restored, not re-summed).
+// day index i = days since 1 Sep + 1 (1–30 = Sep, 31.. = Oct), the same index in 2025 (LY) and 2026 (TY)
+const DAYS=DATA.days.rows,SEP_MIN="2026-09-01",SEP_MAX="2026-09-30",END=DATA.days.end_date,LAST=DATA.days.last_day;
+const D0=Date.UTC(2026,8,1),idx=d=>Math.round((Date.UTC(+d.slice(0,4),+d.slice(5,7)-1,+d.slice(8,10))-D0)/864e5)+1;
+const TRF_LAST=idx(DATA.days.traffic_end);
+const r4=x=>Math.round(x*1e4)/1e4;
+let rng=[1,30];                       // last valid range (days of September); an invalid selection never replaces it
+const fullMonth=()=>rng[0]===1&&rng[1]===30;
+const dm=i=>i<=30?[i,"Sep"]:[i-30,"Oct"];
+const dayTxt=(a,b,y)=>{const [x,m]=dm(a),[z,n]=dm(b);return (a===b?x+" "+m:m===n?x+"–"+z+" "+m:x+" "+m+"–"+z+" "+n)+" "+y;};
+const rangeTxt=()=>dayTxt(rng[0],rng[1],2026)+" vs "+dayTxt(rng[0],rng[1],2025);
+function applyDays(){
+  const [a,b]=rng,full=fullMonth();
+  for(const r of ROWS){
+    if(!r.LY0){r.LY0=r.LY;r.TY0=r.TY;}
+    if(full){r.LY=r.LY0;r.TY=r.TY0;continue;}
+    // DAYS[key] = [LY views by day (0 = no traffic row), TY views by day, LY [[day,sales,orders]], TY [[day,sales,orders]]]
+    const x=DAYS[r.id+"|"+r.mp]||[0,0,[],[]];
+    const per=(vv,ss,base,noTrf)=>{let s=0,o=0,v=0;for(const [d,ds,dO] of ss)if(d>=a&&d<=b){s+=ds;o+=dO;}
+      if(vv)for(let d=a;d<=b;d++)v+=vv[d-1];
+      // Views: inside September keep the monthly "no traffic row" rule; once Oct days are included, null only without any traffic row;
+      // a TY range that starts after the latest traffic date has no Views in the source at all -> null (No data), never 0
+      return Object.assign({},base,{s:r4(s),o,v:noTrf||(b<=30?base.v===null:!vv)?null:v,imNA:true});};
+    r.LY=per(x[0],x[2],r.LY0,false);r.TY=per(x[1],x[3],r.TY0,a>TRF_LAST);
+  }
+  rangeLbl=full?null:k=>k==="yoy"?rangeTxt():dayTxt(a,b,k[0]==="l"?2025:2026);
+  $("sub").textContent="September -Comparision · LY = "+dayTxt(a,b,2025)+" · TY = "+dayTxt(a,b,2026)+(full?"":" (selected date range; ad columns and Segment: full September)")+" · Generated "+DATA.generated_at;
+}
+const isSep=d=>/^2026-[0-9]{2}-[0-9]{2}$/.test(d)&&d>=SEP_MIN&&d<=END;
+function onRange(){
+  const f=$("sdFrom").value,t=$("sdTo").value;
+  const err=!f||!t?"Select both Date From and Date To.":!isSep(f)||!isSep(t)?"Dates must be within 1 Sep 2026 – "+fmtD(END)+".":f>t?"Date From must be on or before Date To.":"";
+  $("sdFrom").classList.toggle("bad",!!err&&(!f||!isSep(f)||f>t));$("sdTo").classList.toggle("bad",!!err&&(!t||!isSep(t)||f>t));
+  $("fDl").disabled=!!err;
+  if(err){$("rMsg").className="rmsg err";$("rMsg").textContent=err+" The table still shows "+rangeTxt()+".";return;}
+  rng=[idx(f),idx(t)];applyDays();rMsg();go(0);
+}
+function rMsg(){$("rMsg").className="rmsg";$("rMsg").textContent=(fullMonth()?"Full month: 1–30 Sep 2026 vs 1–30 Sep 2025":"Showing "+rangeTxt()+(rng[1]>30?" · includes October data ("+dayTxt(Math.max(rng[0],31),rng[1],2026)+" vs "+dayTxt(Math.max(rng[0],31),rng[1],2025)+")":"")+" · ad columns and Segment: full September")+
+  (rng[1]>TRF_LAST?" · Views: traffic data only up to "+fmtD(DATA.days.traffic_end):"")+" · data up to "+fmtD(END)+openTxt();}
+const baseRender=render;
+render=function(){baseRender();
+  if(!fullMonth())$("count").innerHTML+=' · <b class="rng">Sales, Orders, Views, Conversion: '+rangeTxt()+"</b>";};
+// default range (business decision 2026-10-07): 1 Sep 2026 -> latest data date (END)
+$("sdFrom").max=$("sdTo").max=END;$("sdFrom").value=SEP_MIN;$("sdTo").value=END;
+rng=[1,LAST];applyDays();rMsg();go(0);
+// ---- Price & SKU tab: its own sales Date From / Date To (same rules), default 1 Sep -> latest data date ----
+const octTxt=(a,b)=>b>30?" · includes October data ("+dayTxt(Math.max(a,31),b,2026)+" vs "+dayTxt(Math.max(a,31),b,2025)+")":"";
+prTxt=()=>dayTxt(prng[0],prng[1],2026)+" vs "+dayTxt(prng[0],prng[1],2025);
+PRNG_K.lyp=()=>dayTxt(prng[0],prng[1],2025);PRNG_K.typ=PRNG_K.tyo=()=>dayTxt(prng[0],prng[1],2026);
+function psMsg(){$("psMsg").className="rmsg";$("psMsg").textContent="Showing "+prTxt()+octTxt(prng[0],prng[1])+" · data up to "+fmtD(END)+openTxt();}
+function onPRange(){
+  const f=$("psFrom").value,t=$("psTo").value;
+  const err=!f||!t?"Select both Date From and Date To.":!isSep(f)||!isSep(t)?"Dates must be within 1 Sep 2026 – "+fmtD(END)+".":f>t?"Date From must be on or before Date To.":"";
+  $("psFrom").classList.toggle("bad",!!err&&(!f||!isSep(f)||f>t));$("psTo").classList.toggle("bad",!!err&&(!t||!isSep(t)||f>t));
+  $("pDl").disabled=!!err;
+  if(err){$("psMsg").className="rmsg err";$("psMsg").textContent=err+" The table still shows "+prTxt()+".";return;}
+  prng=[idx(f),idx(t)];psMsg();pGo(0);
+}
+$("psFrom").max=$("psTo").max=END;$("psFrom").value=SEP_MIN;$("psTo").value=END;prng=[1,LAST];psMsg();pDirty=true;
+$("psFrom").addEventListener("change",onPRange);$("psTo").addEventListener("change",onPRange);
+$("sdFrom").addEventListener("change",onRange);$("sdTo").addEventListener("change",onRange);
+// Excel of the filtered Final Output Sales table, for the selected date range (range columns are labelled with their dates)
+const r2=v=>v===null||v===undefined?null:Math.round(v*100)/100;
+function mainExport(){
+  const H=["eBay ID","PH","Category","Account","Marketplace","SKU","SKU source","LY Sales","TY Sales","YoY %","LY Ad Sales (Std)","LY Ad Sales (Adv)","TY Ad Sales (Std)","TY Ad Sales (Adv)",
+    "LY Views","TY Views","LY Orders","TY Orders","LY Conversion %","TY Conversion %","Ad Impressions (Std)","Ad Impressions (Adv)","Ad Clicks (Std)","Ad Clicks (Adv)",
+    "Ad Spend (Std)","Ad Spend (Adv)","Ad Sales (Std)","Ad Sales (Adv)","ROAS (Std)","ROAS (Adv)","ACOS % (Std)","ACOS % (Adv)","Segment"];
+  const NLV="Not live in Sep 2025",out=[H];
+  const adv=(r,S,per,i)=>{const x=r.ads[S]&&r.ads[S][per];return x?x[i]:null;};
+  const cv=p=>p.v===null?null:p.v===0?"N/A":r2(p.o/p.v*100);
+  for(const r of current()){
+    const yoy=yoyV(r.LY.s,r.TY.s);
+    const ro=S=>{const x=r.ads[S]&&r.ads[S].TY;return !x?null:x[2]===0?"N/A":r2(x[3]/x[2]);},ac=S=>{const x=r.ads[S]&&r.ads[S].TY;return !x?null:x[3]===0?"N/A":r2(x[2]/x[3]*100);};
+    out.push([r.id,r.ph.length?r.ph.join(", "):"Unassigned",DATA.rows[r.i][12]||null,r.acct,r.mp,(r.skus.length?r.skus:r.lsku).join(", ")||null,r.skus.length?"order":r.lsku.length?"listing":null,
+      r2(r.LY.s),r2(r.TY.s),yoy===null?"N/A":r2(yoy),
+      r.nl?NLV:r2(adv(r,"S","LY",3)),r.nl?NLV:r2(adv(r,"A","LY",3)),r2(adv(r,"S","TY",3)),r2(adv(r,"A","TY",3)),
+      r.nl?NLV:r.LY.v,r.TY.v,r.LY.o,r.TY.o,r.nl?NLV:cv(r.LY),cv(r.TY),
+      adv(r,"S","TY",0),adv(r,"A","TY",0),adv(r,"S","TY",1),adv(r,"A","TY",1),r2(adv(r,"S","TY",2)),r2(adv(r,"A","TY",2)),r2(adv(r,"S","TY",3)),r2(adv(r,"A","TY",3)),
+      ro("S"),ro("A"),ac("S"),ac("A"),r.seg.join("; ")]);
+  }
+  const [a,b]=rng;
+  out[0]=out[0].map(h=>/^LY (Sales|Views|Orders|Conversion %)$/.test(h)?h+" ("+dayTxt(a,b,2025)+")":/^TY (Sales|Views|Orders|Conversion %)$/.test(h)?h+" ("+dayTxt(a,b,2026)+")":h==="YoY %"?h+" ("+rangeTxt()+")":h);
+  return out;
+}
+$("fDl").onclick=()=>{
+  if($("fDl").disabled)return;
+  const ph=$("fPh").value,iso=i=>new Date(D0+(i-1)*864e5).toISOString().slice(0,10);
+  saveBlob(xlsxBook([["Final Output Sales",mainExport()]]),"Final_Output_Sales_"+(ph===""?"All_PHs":ph===NOPH?"Unassigned":ph.replace(/[^A-Za-z0-9_-]+/g,"_"))+"_"+iso(rng[0])+"_to_"+iso(rng[1])+".xlsx");
+};
 })();
 </script>
 </body>

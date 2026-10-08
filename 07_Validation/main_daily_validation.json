@@ -1,0 +1,199 @@
+{
+ "overall": "PASS",
+ "html": "C:\\Users\\LED 222\\eBay_Final_Output_Sales\\04_HTML_Report\\eBay_Final_Output_Sales_September_2026.html",
+ "db": "order_management_copy (DATABASE_URL, read-only)",
+ "rule": "TY = selected days of 2026 (1 Sep to the latest order date); LY = the same calendar days of 2025; 1-30 Sep = monthly extract; ads and segment full September",
+ "data_end": "2026-10-07",
+ "traffic_end": "2026-10-06",
+ "figures_all_ebay_ids": {
+  "1 Sep–7 Oct 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 145903.74,
+   "LY Orders": 7863,
+   "LY Views": 305978,
+   "TY Sales": 118870.46,
+   "TY Orders": 5397,
+   "TY Views": 228013
+  },
+  "1–30 Sep 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 115086.49,
+   "LY Orders": 6199,
+   "LY Views": 242059,
+   "TY Sales": 99348.71,
+   "TY Orders": 4509,
+   "TY Views": 190810
+  },
+  "1–15 Sep 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 55382.56,
+   "LY Orders": 3076,
+   "LY Views": 125631,
+   "TY Sales": 49299.27,
+   "TY Orders": 2256,
+   "TY Views": 95541
+  },
+  "16–30 Sep 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 59703.93,
+   "LY Orders": 3123,
+   "LY Views": 116428,
+   "TY Sales": 50049.44,
+   "TY Orders": 2253,
+   "TY Views": 95269
+  },
+  "7 Sep 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 3487.91,
+   "LY Orders": 190,
+   "LY Views": 7654,
+   "TY Sales": 3517.68,
+   "TY Orders": 138,
+   "TY Views": 6542
+  },
+  "1–7 Oct 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 30817.25,
+   "LY Orders": 1664,
+   "LY Views": 63919,
+   "TY Sales": 19521.75,
+   "TY Orders": 888,
+   "TY Views": 37203
+  },
+  "16 Sep–7 Oct 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 90521.18,
+   "LY Orders": 4787,
+   "LY Views": 180347,
+   "TY Sales": 69571.19,
+   "TY Orders": 3141,
+   "TY Views": 132472
+  },
+  "7 Oct 2026": {
+   "eBay IDs": 14912,
+   "LY Sales": 5018.1,
+   "LY Orders": 257,
+   "LY Views": 7374,
+   "TY Sales": 1145.34,
+   "TY Orders": 47,
+   "TY Views": 0
+  }
+ },
+ "checks": [
+  {
+   "check": "source DB for the day ranges is order_management_copy (same as extract.py / extract_daily.py)",
+   "ok": true,
+   "detail": "order_management_copy"
+  },
+  {
+   "check": "Daily comparison (data snapshots) section removed (no card, table, checkbox, snapshot selects or wording)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "Date From / Date To are native calendar inputs (type=date) from 1 Sep 2026 to the latest order date 2026-10-07 (traffic to 2026-10-06)",
+   "ok": true,
+   "detail": "{'types': ['date', 'date'], 'min': ['2026-09-01', '2026-09-01'], 'max': ['2026-10-07', '2026-10-07'], 'val': ['2026-09-01', '2026-10-07'], 'card': 'SEPTEMBER COMPARISON TABLE', 'sameCard': True, 'inFilterBar': False, 'tables': 1}"
+  },
+  {
+   "check": "date controls sit inside the September Comparison Table card; no second table on the tab",
+   "ok": true,
+   "detail": "{'types': ['date', 'date'], 'min': ['2026-09-01', '2026-09-01'], 'max': ['2026-10-07', '2026-10-07'], 'val': ['2026-09-01', '2026-10-07'], 'card': 'SEPTEMBER COMPARISON TABLE', 'sameCard': True, 'inFilterBar': False, 'tables': 1}"
+  },
+  {
+   "check": "default range = 1 Sep 2026 → 2026-10-07 (latest data date), header and count label show it",
+   "ok": true,
+   "detail": "(['2026-09-01', '2026-10-07'], 'September -Comparision · LY = 1 Sep–7 Oct 2025 · TY = 1 Sep–7 Oct 2026 (selected date range; ad columns and Segment: full September) · Generated 2026-10-08T08:48:02')"
+  },
+  {
+   "check": "Price & SKU tab has no sales date-range or daily comparison controls",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "1 Sep–7 Oct 2026 vs 1 Sep–7 Oct 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "1–30 Sep 2026 vs 1–30 Sep 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = monthly extract; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "1–15 Sep 2026 vs 1–15 Sep 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "16–30 Sep 2026 vs 16–30 Sep 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "7 Sep 2026 vs 7 Sep 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "1–7 Oct 2026 vs 1–7 Oct 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "16 Sep–7 Oct 2026 vs 16 Sep–7 Oct 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "7 Oct 2026 vs 7 Oct 2025: every eBay ID (14912) — table rows, Excel Sales/Orders/Views/Conversion = direct DB query for those days; column + header labels; no undefined/NaN/Infinity",
+   "ok": true,
+   "detail": "(14912, 14912, True, True, [])"
+  },
+  {
+   "check": "1–15 Sep + 16–30 Sep = 1–30 Sep for every eBay ID (Sales, Orders, Views, LY and TY)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "1–30 Sep + 1–7 Oct 2026 = 1 Sep–7 Oct 2026 for every eBay ID (Sales, Orders, LY and TY)",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "1–30 Sep totals reconcile exactly with the September extract (dataset.json)",
+   "ok": true,
+   "detail": "({'LY': [115086.49, 6199], 'TY': [99348.71, 4509]}, {'eBay IDs': 14912, 'LY Sales': 115086.49, 'LY Orders': 6199, 'LY Views': 242059, 'TY Sales': 99348.71, 'TY Orders': 4509, 'TY Views': 190810})"
+  },
+  {
+   "check": "1–30 Sep totals also equal a direct DB query for the whole month",
+   "ok": true,
+   "detail": "({'LY': [115086.49], 'TY': [99348.71]}, {'eBay IDs': 14912, 'LY Sales': 115086.49, 'LY Orders': 6199, 'LY Views': 242059, 'TY Sales': 99348.71, 'TY Orders': 4509, 'TY Views': 190810})"
+  },
+  {
+   "check": "1–15 Sep with PH / Category / Account / Segment / search filters: rows and Excel values match",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "check": "pagination works with a range selected (page 2, 25 rows)",
+   "ok": true,
+   "detail": "('Page 2 of 127', 25)"
+  },
+  {
+   "check": "invalid ranges (From > To, after the data end, before 1 Sep, empty) are blocked: error shown, table keeps the last valid range, Download disabled; a valid range recovers",
+   "ok": true,
+   "detail": "{'From after To': {'msg': 'Date From must be on or before Date To. The table still shows 1–15 Sep 2026 vs 1–15 Sep 2025.', 'err': True, 'dl_disabled': True, 'table_unchanged': True, 'still': True}, 'after the latest data date': {'msg': 'Dates must be within 1 Sep 2026 – 7 Oct 2026. The table still shows 1–15 Sep 2026 vs 1–15 Sep 2025.', 'err': True, 'dl_disabled': True, 'table_unchanged': True, 'still': True}, 'before 1 Sep': {'msg': 'Dates must be within 1 Sep 2026 – 7 Oct 2026. The table still shows 1–15 Sep 2026 vs 1–15 Sep 2025.', 'err': True, 'dl_disabled': True, 'table_unchanged': True, 'still': True}, 'empty': {'msg': 'Select both Date From and Date To. The table still shows 1–15 Sep 2026 vs 1–15 Sep 2025.', 'err': True, 'dl_disabled': True, 'table_unchanged': True, 'still': True}}"
+  },
+  {
+   "check": "back to 1–30 Sep restores the full-month table",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "no JS / console errors",
+   "ok": true,
+   "detail": "[]"
+  }
+ ]
+}

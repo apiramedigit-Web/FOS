@@ -13,10 +13,12 @@ from playwright.sync_api import sync_playwright
 BASE = pathlib.Path(__file__).resolve().parent.parent
 HTML = BASE / "04_HTML_Report" / "eBay_Final_Output_Sales_September_2026.html"
 DATA = BASE / "04_HTML_Report" / "data" / "dataset.json"
+ACCT_OVR = json.load(open(BASE / "04_HTML_Report" / "data" / "account_overrides.json", encoding="utf-8"))["ids"]
 REP = BASE / "06_Validation" / "reports"
 REQ_COLS = ["eBay ID", "SKU", "LY Sales", "TY Sales", "YoY %", "LY Ad Sales", "TY Ad Sales", "LY Views", "TY Views",
-            "LY Orders", "TY Orders", "LY Conversion %", "TY Conversion %", "LY Price", "TY Price", "Ad Impressions",
+            "LY Orders", "TY Orders", "LY Conversion %", "TY Conversion %", "Ad Impressions",
             "Ad Clicks", "Ad Spend", "Ad Sales", "ROAS/ACOS", "Segment"]
+# LY/TY Price moved to the "Price & SKU Sales Analysis" tab (2026-10-07); checked by validate_price_tab.py
 ACCTS = ["Sunsone", "Ledsone", "Electricalsone", "Huttenlampen", "ledsone uk de", "ledsone de"]
 SS = {"Sunsone": "so_926407", "Ledsone": "led_sone", "Electricalsone": "electricalsone",
       "Huttenlampen": "huettenlampen", "ledsone uk de": "led_sone", "ledsone de": "ledsonede"}
@@ -32,7 +34,7 @@ GET_ROWS = """sel=>[...document.querySelectorAll(sel)].map(r=>{const o={};for(co
   if(k==='sku'){const s=c.querySelector('[title]');o.sku_t=s?s.title:'';o.sku_src=!!c.querySelector('.src');o.sku_lines=[...c.querySelectorAll('.one')].map(x=>x.textContent);}
   if(k==='seg')o.segs=[...c.querySelectorAll('[data-seg]')].map(b=>b.dataset.seg);}
   const g=r.querySelectorAll('[data-k=glys],[data-k=gtys]');if(g.length){o.glys=g[0].innerText;o.gtys=g[1].innerText;}
-  o.id=r.dataset.id;o.acct=r.dataset.acct;o.mp=r.dataset.mp;o.grp=r.dataset.grp;return o;})"""
+  o.id=r.dataset.id;o.acct=r.dataset.acct;o.mp=r.dataset.mp;o.grp=r.dataset.grp;o.ph=r.dataset.ph;return o;})"""
 results = []
 
 
@@ -53,11 +55,18 @@ def close(a, b, tol=0.011):
     return a is not None and b is not None and abs(a - b) <= tol
 
 
+def acct_override(acct, mp, i):
+    """Display-only account group (04_HTML_Report/data/account_overrides.json, business decision 2026-10-07)."""
+    o = ACCT_OVR.get(i)
+    return o["acct"] if o and (acct, mp) == (o["from_acct"], o["mp"]) else acct
+
+
 def expected_ids():
     ids = {}
     for r in json.load(open(DATA, encoding="utf-8"))["rows"]:
-        k = (r["acct"], r["mp"], r["id"])
-        d = ids.setdefault(k, {"acct": r["acct"], "mp": r["mp"], "id": r["id"], "skus": set(), "lsku": r.get("lsku") or [], "created": r.get("created"),
+        a = acct_override(r["acct"], r["mp"], r["id"])
+        k = (a, r["mp"], r["id"])
+        d = ids.setdefault(k, {"acct": a, "mp": r["mp"], "id": r["id"], "skus": set(), "lsku": r.get("lsku") or [], "created": r.get("created"),
                                "ads": {S: v for st, S, _ in STRATS for s2, v in r["ads"].items() if s2 == st},
                                **{p: {"s": 0, "u": 0, "pxq": 0, "o": r[p]["lorders"], "v": r[p]["views"], "im": r[p]["impr"]} for p in ("LY", "TY")}})
         if r["sku"]: d["skus"].add(r["sku"])
@@ -102,8 +111,7 @@ def check_row(c, d, bad):
             im = re.search(r"Impressions: ([\d,]+|no data)", c[k + "v_t"])
             if not im or (x["im"] is None) != (im.group(1) == "no data") or (x["im"] is not None and num(im.group(1)) != x["im"]):
                 bad.append((d["id"], p + " impressions tooltip", x["im"], c[k + "v_t"]))
-        ep = None if x["u"] == 0 else x["pxq"] / x["u"]
-        if (ep is None and c[k + "p"] != "N/A") or (ep is not None and not close(num(c[k + "p"]), ep, 0.0051)): bad.append((d["id"], p + " price", ep, c[k + "p"]))
+        if k + "p" in c: bad.append((d["id"], p + " price column still on the main table", c[k + "p"]))
     for col, (p, idx, dp, _) in list(ADK.items()) + [("ra", ("TY", None, None, None))]:
         if col == "LYAdSales" and d["nl"]:
             continue
@@ -143,7 +151,10 @@ def all_pages(pg):
 
 def main():
     ids = expected_ids()
-    recon = json.load(open(REP / "reconciliation.json", encoding="utf-8"))
+    # PH filter: default "All PHs" = IDs owned by any PH; "Unassigned" = the rest (validate_ph.py checks each PH)
+    phmap = json.load(open(BASE / "04_HTML_Report" / "data" / "ph_map.json", encoding="utf-8"))["map"]
+    pool = {k: d for k, d in ids.items() if phmap.get(d["id"])}
+    recon =json.load(open(REP / "reconciliation.json", encoding="utf-8"))
     src = {(c["check"], c["key"]): c["source"] for c in recon["checks"]}
     errors = []
     with sync_playwright() as pw:
@@ -152,28 +163,36 @@ def main():
         pg.on("pageerror", lambda e: errors.append(str(e)))
         pg.on("console", lambda m: errors.append(m.text) if m.type == "error" else None)
         pg.goto(HTML.as_uri()); pg.wait_for_selector("#t tbody tr[data-id]")
+        # these checks are for the September monthly table: select 1-30 Sep (the page default is 1 Sep -> latest data date)
+        pg.fill("#sdTo", "2026-09-30"); pg.wait_for_timeout(600)
         check("file exists and opens in Chromium", HTML.exists())
 
         # ---- structure ----
         hd = pg.eval_on_selector_all("#t thead th", "e=>e.map(x=>x.firstChild.textContent.trim())")
-        check("header = the 21 Final OutPut Sales columns in workbook order", hd == REQ_COLS, hd)
-        labels = pg.eval_on_selector_all(".filters label", "e=>e.map(x=>x.childNodes[0].textContent.trim())")
-        check("filters = Account, Segment (requirement) + eBay ID/SKU search", labels == ["Account", "Segment", "Search eBay ID / SKU"], labels)
+        check(f"header = the {len(REQ_COLS)} Final OutPut Sales columns in workbook order (no LY/TY Price)", hd == REQ_COLS, hd)
+        labels = pg.eval_on_selector_all("#tabMain .filters label", "e=>e.map(x=>x.childNodes[0].textContent.trim())")
+        check("filters = PH, Category, Account, Segment + eBay ID/SKU search (Date From / Date To sit in the September Comparison Table card)",
+              labels == ["PH", "Category", "Account", "Segment", "Search eBay ID / SKU"]
+              and pg.eval_on_selector_all("#dRange label", "e=>e.map(x=>x.childNodes[0].textContent.trim())") == ["Date From", "Date To"], labels)
         check("Account options = 'All accounts' + 6 workbook accounts in order",
               pg.eval_on_selector_all("#fAcct option", "e=>e.map(x=>x.textContent)") == ["All accounts"] + ACCTS)
         all_segs = sorted({s for d in ids.values() for s in d["seg"]})
         seg_opts = pg.eval_on_selector_all("#fSeg option", "e=>e.map(x=>x.textContent)")
         check("Segment options = 'All segments' + every segment present", seg_opts == ["All segments"] + all_segs, seg_opts)
-        check("default view = all accounts, all segments, all IDs",
-              pg.input_value("#fAcct") == "" and pg.input_value("#fSeg") == "" and shown(pg) == len(ids), pg.inner_text("#count"))
+        check("default view = All PHs, all accounts, all segments (every PH-owned ID)",
+              pg.input_value("#fPh") == "" and pg.input_value("#fAcct") == "" and pg.input_value("#fSeg") == "" and shown(pg) == len(pool), pg.inner_text("#count"))
         check("pager: First/Prev/Page x of y/Next/Last + rows per page",
               all(pg.locator(i).count() == 1 for i in ("#pgFirst", "#pgPrev", "#pgNext", "#pgLast", "#pgSize")) and pg.inner_text("#pgInfo").startswith("Page 1 of"))
         pg.screenshot(path=str(REP / "screenshot_1920.png"))
         pg.select_option("#pgSize", "200"); pg.wait_for_timeout(150)
 
         # ---- every row, every page ----
-        rows, grps = all_pages(pg)
-        check(f"rows rendered across all pages = every eBay ID in scope ({len(ids):,})",
+        rows, grps = all_pages(pg)                      # All PHs
+        pg.select_option("#fPh", "__none__"); pg.wait_for_timeout(150)
+        rows_u, grps_u = all_pages(pg)                  # Unassigned
+        pg.select_option("#fPh", "")
+        rows += rows_u
+        check(f"rows rendered across all pages (All PHs + Unassigned) = every eBay ID in scope ({len(ids):,})",
               len(rows) == len(ids) and len({(r["acct"], r["mp"], r["id"]) for r in rows}) == len(ids), (len(rows), len(ids)))
         bad, broken, heights = [], [], []
         for c in rows:
@@ -181,9 +200,9 @@ def main():
             if d is None: bad.append((c["id"], "unexpected")); continue
             check_row(c, d, bad)
             for k, v in c.items():
-                if isinstance(v, str) and ((v == "" and not k.startswith("_") and not k.endswith("_t") and k not in ("grp",)) or re.search(r"undefined|NaN|Infinity|null|\[object", v)):
+                if isinstance(v, str) and ((v == "" and not k.startswith("_") and not k.endswith("_t") and k not in ("grp", "ph")) or re.search(r"undefined|NaN|Infinity|null|\[object", v)):
                     broken.append((c["id"], k, v))
-        check(f"all {len(rows):,} rows match independent recompute (21 columns, Std/Adv separately, tooltips, SKU source, segments)", not bad, bad[:6])
+        check(f"all {len(rows):,} rows match independent recompute ({len(REQ_COLS)} columns, Std/Adv separately, tooltips, SKU source, segments)", not bad, bad[:6])
         check("no empty / undefined / NaN / Infinity / null cell on any page", not broken, broken[:5])
         no_sku = sum(1 for d in ids.values() if not d["skus"] and not d["lsku"])
         nl_exp = sum(1 for d in ids.values() if d["nl"]); nl_got = sum(1 for c in rows if c["lyv"] == "Not live in Sep 2025")
@@ -224,19 +243,21 @@ def main():
         check(f"Σ displayed rows reconcile to source SQL for all {len(agg)} account x marketplace (Sales, Orders, Views, Impressions, every ad metric per strategy)", not bad, bad[:6])
         check("every source account x marketplace has rows on the page", src_keys <= set(agg), src_keys - set(agg))
         badg = []
-        for gk, g in grps.items():
-            acct, mp = gk.split(" · ")
-            e = [sum(d[p]["s"] for d in ids.values() if d["acct"] == acct and d["mp"] == mp) for p in ("LY", "TY")]
-            if not close(num(g["glys"]), e[0], 0.011) or not close(num(g["gtys"]), e[1], 0.011): badg.append((gk, e, g["glys"], g["gtys"]))
-        check(f"all {len(grps)} account header totals (LY/TY Sales) correct", not badg and len(grps) == len(agg), badg[:4])
+        for sub, gg in ((pool, grps), ({k: d for k, d in ids.items() if k not in pool}, grps_u)):
+            for gk, g in gg.items():
+                acct, mp = gk.split(" · ")
+                e = [sum(d[p]["s"] for d in sub.values() if d["acct"] == acct and d["mp"] == mp) for p in ("LY", "TY")]
+                if not close(num(g["glys"]), e[0], 0.011) or not close(num(g["gtys"]), e[1], 0.011): badg.append((gk, e, g["glys"], g["gtys"]))
+        check(f"all {len(grps) + len(grps_u)} account header totals (LY/TY Sales; All PHs and Unassigned) correct", not badg and set(grps) | set(grps_u) == {a + " · " + m for a, m in {(c["acct"], c["mp"]) for c in rows}}, badg[:4])
 
         # ---- filters ----
         bad = []
         for seg in all_segs:
             pg.select_option("#fSeg", seg); pg.wait_for_timeout(120)
-            exp = [d for d in ids.values() if seg in d["seg"]]
+            exp = [d for d in pool.values() if seg in d["seg"]]
             vis = pg.evaluate(GET_ROWS, "#t tbody tr[data-id]")
             if shown(pg) != len(exp) or any(seg not in v["segs"] for v in vis): bad.append((seg, len(exp)))
+            if not exp: continue
             g = pg.evaluate(GET_ROWS, "#t tbody tr.grp")[0]; acct, mp = g["grp"].split(" · ")
             e = sum(d["TY"]["s"] for d in exp if d["acct"] == acct and d["mp"] == mp)
             if not close(num(g["gtys"]), e, 0.011): bad.append((seg, "filtered header total", e, g["gtys"]))
@@ -245,13 +266,13 @@ def main():
         bad = []
         for a in ACCTS:
             pg.select_option("#fAcct", a); pg.wait_for_timeout(120)
-            exp = sum(1 for d in ids.values() if d["acct"] == a)
+            exp = sum(1 for d in pool.values() if d["acct"] == a)
             vis = pg.evaluate(GET_ROWS, "#t tbody tr[data-id]")
-            if shown(pg) != exp or {v["acct"] for v in vis} != {a}: bad.append((a, exp))
+            if shown(pg) != exp or {v["acct"] for v in vis} != ({a} if exp else set()): bad.append((a, exp))
         pg.select_option("#fAcct", "")
         check("Account filter: each account shows exactly its IDs; 'All accounts' = all 6", not bad, bad)
         pg.select_option("#fAcct", "Ledsone"); pg.select_option("#fSeg", "C – Lost Ad Sales (Advanced)"); pg.wait_for_timeout(120)
-        exp = sum(1 for d in ids.values() if d["acct"] == "Ledsone" and "C – Lost Ad Sales (Advanced)" in d["seg"])
+        exp = sum(1 for d in pool.values() if d["acct"] == "Ledsone" and "C – Lost Ad Sales (Advanced)" in d["seg"])
         vis = pg.evaluate(GET_ROWS, "#t tbody tr[data-id]")
         check("Account + Segment combined; ad values still shown under filter",
               shown(pg) == exp and all(num(v.get("LYAdSalesA")) is not None for v in vis), exp)
@@ -259,10 +280,10 @@ def main():
         # ---- search: partial, case-insensitive on eBay ID + order SKUs + listing SKUs ----
         def exp_q(q, acct=""):
             q = q.lower()
-            return sorted(d["id"] for d in ids.values() if (not acct or d["acct"] == acct) and
+            return sorted(d["id"] for d in pool.values() if (not acct or d["acct"] == acct) and
                           (q in d["id"].lower() or any(q in x.lower() for x in d["skus"]) or any(q in x.lower() for x in d["lsku"])))
-        one_id = next(d for d in ids.values() if d["skus"])
-        lst = next(d for d in ids.values() if not d["skus"] and d["lsku"])
+        one_id = next(d for d in pool.values() if d["skus"])
+        lst = next(d for d in pool.values() if not d["skus"] and d["lsku"])
         tests = [(one_id["id"], ""), (sorted(one_id["skus"])[0], ""), ("lsca2l", ""), (lst["lsku"][0], ""), ("CRFF500BM", "Ledsone"), ("31761", "")]
         bad = []
         for q, acct in tests:
@@ -276,7 +297,7 @@ def main():
         pg.select_option("#fAcct", ""); pg.fill("#fQ", "zzz-no-such-sku"); pg.wait_for_timeout(400)
         nomatch = shown(pg) == 0 and "No eBay ID or SKU matches" in pg.inner_text("#t")
         pg.click("#fQx"); pg.wait_for_timeout(400)
-        cleared = pg.input_value("#fQ") == "" and shown(pg) == len(ids)
+        cleared = pg.input_value("#fQ") == "" and shown(pg) == len(pool)
         check("search: eBay ID, SKU, partial/case-insensitive, listing SKU, combined with Account; no-match message; clear button",
               not bad and nomatch and cleared, (bad, nomatch, cleared))
         hdr = pg.eval_on_selector_all("#t thead th", "e=>e.map(x=>x.innerHTML)")
